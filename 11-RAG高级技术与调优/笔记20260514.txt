@@ -1,0 +1,395 @@
+Q：老师，上节课展示的万圣节海报的RAG，在检索的时候最后是怎么被匹配到的？是因为海报有文字吗？
+不是依靠文字，多模态embedding
+jpg => base64编码 => 多模态embedding （1024维向量）
+
+
+
+Q：embeding 模型要是私有化部署，需要什么样的硬件配置，才能真正使用？
+RTX4090 24G
+
+Q：元数据在rag中有啥用？
+元数据：文件名、chunk所在的页码，作者，部门
+（做筛选）
+
+Q：embedding模型我的千问3，4060笔记本可以的
+
+
+Q：陈博，想做一个基于RAG的agent，实现对特定寄存器（32bit）数据的解析（有很多寄存器需要解析），不知道RAG能实现不；
+
+
+Q：需要给定寄存器地址及数据，如何按照寄存器定义的结构字段按bit或按Byte做解析；请问这样的rag该如何做？
+
+
+Q：1.5买不太到
+
+
+Q：mac studio pro是不是还是最性价比的？
+
+
+Q：老师做股票选股时，存储优秀买点embeding向量，然后每天用最短向量选股如何
+
+
+
+Q：老师能评价一下 RAG
+
+
+Q：视频embedding您说的8帧，这个怎么设置？比如让他更多帧，更详细。
+
+
+Q：老师，我可以全部采用开源框架，从分词到embedding，再到大模型整个链条都用开源框架然后买服务器跑，会不会比直接买模型服务更有性价比？
+
+Q：老师，我想问一下，网上不少人使用claude code+deepseek V4，这个跟trae使用GLM5.1有什么实质的不同呢？
+
+
+Q：用一个芯片手册的PDF，做多级分层切片生成RAG，基于RAG提问时已经明确说了要根据RAG来回来，但是回答还是有明显的幻觉，有可能是哪里出问题了？
+
+
+Q：4090显卡降价是真的吗
+
+
+Q：embedding有架构区别吗？怎么针对不同的应用场景做选择？
+
+
+Q：老师，能不能介绍一下港大黄超团队开源的多模态 RAG 框架RAG-Anything，据说能够同时处理文字、图像、表格、数学公式等多种异构内容，构建多模态知识图谱
+
+
+
+Agentic RAG：通过工具调用来进行检索（灵活、AI是否调用工具，调用哪个工具）
+nativeRAG：是一个固定的流程，在顺序的开始就会执行
+
+Agent = 先进行RAG，再进行工具调用
+
+知识库（向量数据库 faiss）
+chunk（原始信息，问句）=》embedding
+
+embedding：特征向量；
+原始特征： 原始的chunk => embedding *****
+扩展出来的问题特征：生成的5个问题 => embedding
+
+一个大的特征；
+
+embedding：帮你筛选知识
+
+RAG知识工程
+prompt 版本管理
+code 版本管理
+
+
+Q：知识库问题怎么向量化?
+embedding BGE-M3
+
+
+Q：我写2天代码，测了5天了
+
+
+Q：老师用的什么软件编译运行代码的
+sublime 笔记本
+
+Q：因为case4中涉及到版本的持续迭代吗
+
+
+Q：知识库的健康度管理，没有太明白，LLM如何在大量chunk中分析出冲突，能比较全面查找到吗
+分类（不同文件夹）
+1、票价  =》 1000chunks
+2、活动规则
+
+
+Q：BM25解释一下
+TFIDF = 词频，逆向文档率
+
+Q：问题和答案都要embeding吗？
+
+
+
+Q：在实际项目中，知识库权限怎么管理？就像我们公司数据库的数据。财务看的。然后给销售看的，行政看的。权限不一样。这个智能体怎么去控制权限？
+tag
+
+
+BM25是什么
+
+
+Q：知识embedding后不能反向恢复，如果没有保存元数据，大模型怎么找到匹配的知识再转化为元数据来回答呢？
+embedding 知识特征，帮你计算相似度=>筛选
+原始文本
+
+
+Q：这个BM25前面能不能加个大模型，模糊匹配？
+BM25 （快，方便）数学公式
+
+问题 => LLM 提取关键词 => BM25 打分
+
+Q：这种可以理解为多路召回吗？
+hybrid 混合（多路）召回
+
+Q：关键词检索在什么阶段实现的
+RAG检索的策略
+
+
+Q：这俩的分值一致吗
+BM25 分数可能会大于1
+cos embedding相似度 分数在 [0, 1]
+
+Q：faiss可以混合检索吗
+BM25 是一个工具库
+faiss 向量相似度 embedding
+
+Q：多路召回是不是有个融合算法
+打分
+dify, coze
+
+Q：混合检索，有先后顺序吗
+
+Q：AI 检索如果性能特别慢的话，可以从哪些维度优化？
+embedding faiss
+
+Q：混合检索的权重怎么设置？
+人工设置
+
+Q：这些步骤加上会减缓召回速度么？
+embedding
+
+
+Q：bm25性能慢吗
+不慢
+
+Q：怎么确认关键词ne
+分词
+
+bm25很依赖分词效果吧
+
+
+Q：语义相似度很高但关键字一个都没搜到，混合之后不就会导致0分了么？
+不会0分，考试偏科
+embedding score = 高分
+BM25 score = 0
+综合下来 score = 一般
+
+Q：BM25和向量相似度检索对chunk的要求相同吗？比如固定字数切分会影响BM25性能吗
+
+
+Q：什么场景适合用混合检
+
+
+Q：混合检索两者如何取舍或组合？延迟预算下优先保哪一个？
+BM25
+qwen-agent
+
+Q：返回的分数，针对的同一个切片吧
+
+
+Q：运行的这些代码，是AI写的吗？ 还是人工写的？
+
+
+Q：原始知识K和根据K扩写的问题A到E 
+进行emd后存入向量数据库 
+问题后进行匹配 假如匹配到是问题D，返回给大模型的是扩写的问题D吗？是的话该如何获取到原始K呢？
+
+embedding, BM25 => 计算工具，帮你打分
+要的还是你的本人（原文）
+
+
+
+
+Q：能说一下rerank和embedding的区别么？
+embedding模型 计算向量相似度 ****
+query 特征 VS chunk 特征
+苹果特征 VS 香蕉特征 = 0.7
+
+rerank 回答结果质量的score
+
+embedding < rerank < LLM ***
+embedding (快速，批量） 向量化
+
+Q：感觉都是用来排序的
+
+
+RAG 不是一个工具，系统
+Q：Query2Doc，不理解。本来就不知道答案，怎么预测呢？
+
+用户问题：如何提高深度学习模型的训练效率？
+query2doc => LLM 知识可以从以下哪些维度进行回答
+thinking
+
+
+RAG本地有一些知识 
+
+
+Q：small 存哪里 big存哪里
+big = 原文  faiss2
+summary(small) = 轻量级原文 faiss1
+summary <=> big
+
+
+Q：都是为了压缩上下文
+
+
+Q：rerank打分原理是什么？怎么知道这个问题跟答案匹配度高？
+神经网络训练出来的
+https://modelscope.cn/models/BAAI/bge-reranker-v2-m3
+<Q, A> 监督学习
+pairs = [
+    ['what is panda?', 'The giant panda is a bear species endemic to China.'],  # 高相关
+    ['what is panda?', 'Pandas are cute.'],                                     # 中等相关
+    ['what is panda?', 'The Eiffel Tower is in Paris.']                        # 不相关
+]
+
+
+
+1、small 存哪里 big 存哪里
+
+
+Q：d2q没理解，扩写完把q+a放一个chunk存向量？然后怎么通过用户q再来查？
+
+原始chunk （500token）
+本文介绍了深度学习模型训练中的优化技巧，包括：
+1. 使用 AdamW 优化器替代传统的 SGD。
+2. 采用混合精度训练，减少显存占用。
+3. 使用分布式训练技术加速大规模模型的训练……
+
+q: 5个问题（200token）
+q+a => 700token => embedding （整理知识特征， 1024维度）
+
+用户query => query特征，1024维度
+
+embedding作用：做知识特征提取
+
+原文chunk => 放到LLM
+
+
+Q：有small - to -big的例子吗
+
+
+Q：small to big 不就是skill类似的意思么
+
+
+Q：我发现agent很喜欢不断做压缩，记忆、skills、RAG都需要
+
+
+Q：sumarry、生成的问题是不是都放到元数据里？
+
+
+Q：基于完整的迪士尼文件做了RAG的问答智能体用了上节课多模态的一些技术，测试的时候，回答的不是很好例如中国有几个迪士尼，他会回答香港，上海，北京，应该怎么解决
+
+
+Q：问题扩写后，比如扩写成5个，5个问题每个单独去向量库查询还是一起作为一个向量去查询？
+
+
+Q：在项目中，rag检索分数一般要优化到什么程度
+
+
+
+https://github.com/microsoft/graphrag
+
+small to big
+
+
+Q：老师，graphRAG生成后，就不用和LLM交互了吗？
+LLM 完成推理的 上下文补充 是通过 graphRAG提取的
+
+query + nativeRAG（帮你筛选chunks）=> LLM
+query + graphRAG （帮你筛选社区/摘要）=> LLM
+
+Q：老师，graphRAG的查询效率比起faiss来咋样？
+
+
+Q：打赢吕布的都得学ai ,时代发展太快了
+
+
+Q：如果有新增的知识，图谱要重新生成吗，还是在原有的基础上
+
+
+Q：有新增知识需要重新生成知识图谱吗
+
+
+Q：我们也要搞graph db？
+
+
+Q：lightrag
+
+
+Q：做好了graph，后续有增量的知识是不是要重新做一次
+
+
+Q：嗯，比较像 small to big
+
+
+Q：企业现在以那种RAG为主，nativeRAG还是graphRAG
+nativeRAG
+
+Q：grahpRAG可以增量添加新内容吗？
+
+Q：其实我想过用知识图谱对代码库建立事实层 
+让产品可以使用来写需求 避免产品用ai写需求太飘了 然后就可以串起来做成需求到开发一整套流程
+
+Q：问题：GraphRAG对原文的切片有什么讲究吗？是不是很碎？
+LLM
+
+
+Q：新知识需要重新生成，那成本太高了
+
+
+Q：bigToSmall 是不是和 D2Q 二选一就可以么
+
+
+Q：产生的知识图谱的结果，与使用的LLM能力有关系么？例如更好的LLM可以产生更好的结果
+
+
+Q：GraphRAG，为什么每个问题，cost也那么高？
+
+
+Q：graph rag 这么说来 应该更容易获取实体相关的信息，如果问题是事件的话，是不是检索的效果是不是就不是那么好了
+
+
+
+
+Q：老师，BM25 是不是只适用文字，不适用多模态？ Embedding 模型和 Rerank模型是不是要匹配（例如都采用 Qwen）？
+
+
+Q：这不是一次性的吗？50块，做完就好了，也不是说贵吧？
+
+
+Q：small to big 的两个embedding向量之间的关系是怎么建立的呢? 是以类似字典的形式将两者的id 成对存起来么?
+Step1，small 代表了原来的big
+small =>embedding
+query => embedding
+
+Q：和deepseek问出来的差不多啊，难道deepseek底层也是用的graphRAG？？？还是模型里已经训练
+有三国的知识？
+
+
+Q：graphRAG没有chunk，但是有embeding，那么是对多少内容进行向量转换是什么？
+
+
+Q：graphrag 有新的文档可以增量写进去嘛? 因为有些场景,比如客户提供的资料是陆续提供的, 需要不断补充进去.
+
+
+Q：llm检测知识库里缺乏哪些知识，llm是如何判断用户需要哪些知识但知识库里没有这些知识呢？
+通过测试
+
+
+Q：老师：有了graphRAG 还有必要最后
+
+
+Q：agentic rag调用llm很多轮太慢了怎么提速
+
+
+Q：用graph这么费钱的话，为何不把这个花费花费在LLM上，LLM的效果不是更好么？
+知识库的预处理（LLM）
+
+Q：faiss库是怎么样的？每个人都有独立的空间存储向量吗？
+faiss是个数学工具，快速的计算 某个向量 与向量矩阵之间的相似度
+
+Q：实际llm也是花费很多在RAG上的吧
+
+
+Q：small to big方式， 对应原始的chunk大小有没有相应的要求，比如size大一点？
+适合长文
+
+没那么多上下文啊
+
+
+Q：faiss是个工具软件，你得给他文件
+
+
+Q：nativerag如何做知识更新，全量更新吗？
+

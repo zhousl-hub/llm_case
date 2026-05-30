@@ -1,0 +1,280 @@
+Q：LLM模型，和Embedding模型，都是将文字向量化，但是目标产物却不同。在训练方式和流程上有什么区别吗？
+LLM：推理模型，根据用户的问题，进行回答 **** 主力模型
+训练方式：监督学习 + 强化学习
+
+Embedding：语义向量模型，1024维向量 => 向量上的相似度，帮我们进行数据的快速过滤 *** 过滤模型
+
+
+Q：陈博士，课程学到什么水平可以找到工作？
+
+
+Q：以后在工作岗位上word2veb分词的代码也可以用trae自动生成吗
+
+
+
+Q：老师，前面讲过一个财务 AI 提效的工具，好像不能关机，类似按键精灵高级版，是什么工具呀
+
+
+
+encoder only
+
+
+Q：老师这部分会录屏吗
+
+
+Q：陈老师。如果用马，生成笔记，然后装上repomix，不考虑token，和rag的实际效果比如何
+
+
+Q：用千问的Embedding模型，必须用qwen的大模型吗？
+不是，embedding模型 和 LLM的选择 可以分开
+
+
+
+Q：老师，RAG和LLM Wiki的应用场景怎么区分呢？
+
+
+
+Q：word2vec和embedding模型有什么区别？
+word2vec 是Google开发的一个工具
+embedding模型 得到的是一个model
+
+Q：老师 bge模型怎么样？
+
+
+Q：例子里面from modelscope import snapshot_download 这个包安装不了 提示没这个包
+
+
+
+Q：老师，embedding模型是不是可以理解为对大模型的精确私有化扩展？
+
+
+pip install -r requirements.txt
+
+Q：企业的实际任务是啥样的
+
+
+Q：qwenagent下运行查询很快，naobot下查询慢啥原因
+
+
+
+Agent  = LLM + RAG（记忆） + Tool（Function Call/MCP/Skill）
+
+
+Faiss 库，帮我们计算 embedding的相似度 => 召回（检索）
+
+1000万chunks => 召回 1000个chunk（粗筛，快，批量进行）=> 重排序 (精确的打分, rerank模型 score打分）
+
+1000万简历 => 通过关键词快速筛选简历 Top 1000 => 面试 score
+
+1000万chunks => rerank模型（速度就会很慢）
+2个阶段 = 召回 + 重排序
+
+
+query => 信息 + 指令
+
+帮我查看自行车是哪年发明的？用不超过200字回复，回复用英文
+
+embedding模型的使用
+方法1：通过DASHSCOPE_API_KEY 在线使用
+text-embedding-v1 到 v4 
+
+方法2：开源模型 bge-m3
+
+
+query => query embedding
+embedding is all you need
+万事万物都能 embedding
+
+
+#模型下载
+from modelscope import snapshot_download
+model_dir = snapshot_download('BAAI/bge-m3', cache_dir='/root/autodl-tmp/models')
+
+https://modelscope.cn/models/Qwen/Qwen3-Reranker-8B
+
+
+规则切分 => chunk_size, chunk_overlap => 最常用（简单，快）
+LLM切分 => 成本高，质量好
+
+上亿token => LLM
+
+pip show langchain
+langchain  version 1.2.12
+
+Q：langchain 是什么，老师可以简单说一下吗
+LangChain 是LLM应用开发框架
+
+Q：langchain怎么安装？
+Trae 让它帮你安装
+pip install langchain -i https://pypi.tuna.tsinghua.edu.cn
+
+
+Apple 和 Banana 有没有相似度
+
+
+    # 执行相似度搜索，找到与查询相关的文档
+    docs = knowledgeBase.similarity_search(query, k=4)
+
+LangChain 是一个开发的框架，里面内置了一些工具，不需要自己重复造轮子
+
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        separators=["\n\n", "\n", ".", " ", ""],
+        chunk_size=1000,
+        chunk_overlap=200,
+        length_function=len,
+    )
+
+用现成的框架；
+LangChain
+
+AI编程： @以前跑通的代码，让它改写新的代码
+
+认知
+qwen-agent
+
+RAG 筛选是有价值的！ 因为过滤掉了 不相关的chunk
+
+
+Q：几十轮下来，就出现幻觉了
+幻觉会累计的
+
+
+Q：单轮对话用的越久越傻
+如果用的时间比较长了，可以新启一个session（会话）
+重新加载RAG（来自你自己的代码）
+
+Q：刚才deepseek+Faiss的case就是RAG吗？
+是的
+
+
+Q：一个会话用到最后越用越不好用
+
+
+Q：不是，rag只是里面的一步骤
+
+
+Q：使用大模型进行切分的话是不是只需要把文件丢给大模型，给切分要求的提示词就能实现？
+
+让AI编程工具比如 Cursor，帮你写代码
+调用LLM，传入文本，通过prompt进行切分
+
+
+Ralph
+
+
+Q：用户的问题＋RAG过滤出来的，给LLM会比直接给用户问题给LLM会省时间是吧
+是的！RAG过滤本身就是智能
+
+Q：在RAG查询过程中，怎么限制普通员工去查询领导的敏感性的资料信息，比如工资。
+
+不要试图通过软约束（prompt）
+硬约束，如果这个员工是普通员工，那么上下文中就没有工资的信息
+
+
+Q：出了幻觉就开新会话
+
+
+Q：降智了是要重新换大模型吗
+不一定，
+
+
+Q：如果有一个wiki网站，里面有大量的信息，如文档等，想把信息都自动放到向量库里，并且每日自动增量更新，有什么好的思路
+
+faiss
+    # 从文本块创建知识库
+    knowledgeBase = FAISS.from_texts(chunks, embeddings)
+Faiss可以增量的添加
+
+instruction  => LLM任务
+告诉LLM 都有哪些改写的方式 需要注意，给我们它认为的类型，以及结果，以及置信度（0-1）
+
+Q：query改写跟RAG应该没关系吧？
+RAG 的流程，高度依赖于query
+query => query embedding =》 找知识
+
+DASHSCOPE_API_KEY embedding模型，LLM模型 都是消耗token
+
+
+Q：LLM 对于未知的问题，如何决策是进行webSearch、还是RAG检索？如果都进行了，如何比较不同来源答案的优劣？
+对于Agent来说：RAG 是更优先
+query => query embedding 在知识库中进行检索 => chunks + query => LLM
+webSearch 是一个工具，由大模型自己来判断 (LLM Prompt）
+
+知识的质量（RAG => 检索出来的知识） PK webSearch检索出来知识
+
+
+Q：老师，RAG如果可以提升专业领域知识，微调是否可以替代了？ RAG和微调的界限是什么？
+RAG可以提供知识，但是不能提升能力
+微调是系统的进行学习，好比你大学四年的学习，掌握了一定的能力（找一些领域的qa进行训练）
+
+
+Q：老师，详细说说AI回复置信度的底层逻辑可以吗。
+自我打分
+给我置信度（0-100）
+
+90,95， 100 的一般都比较好
+85的，执行起来 会有一些小毛病
+
+
+
+Q：老师你好意图识别的 em 模型是否会移除指令？比如：请帮助我生成一篇小故事。请使用英文生成200字 这段 prompt 会被移除 “请使用英文生成200字”吗
+embedding模型 不会主动移除，因为它不是真正的语义上的理解，它只是 向量空间上的投射
+qwen-agent，在进行RAG的时候，内置了这个逻辑（只检索知识，过去掉 instruction）
+
+
+
+Q：老师可以说说你炒股的打分策略吗
+Agent 更多的数据土壤，和工具
+
+Q：改写是不是可以写成skill或者rule
+改写本身是可以写成一个工具
+
+
+Q：有免费额度
+
+
+Q：rag时，步骤是提示词调大模型，连接上下文，改提示词，并判断是否联网，若联网提示词给大模型再进行修改提示词。然后将修改后的提示词的embedding进行相关性？
+是的
+JSON输出的内容包括：
+{“是否要调联网”： Yes/No，
+“如果联网的话，查找的提示词”}
+
+Q：判断是否使用webSearch是LLM自己判断 还是代码里去判断
+Agent主动自己来判断（内置Function Call的判断能力）
+
+
+Q：怎么识别用户的错别字导致的歧义
+LLM prompt自我来判断
+
+
+Q：pdf或者word包含图片和公式，特别是图片，切片怎么进行embedding向量化呢
+图片embedding，多模态embedding
+
+
+Q：老师，假如有问题和答案成对方式的知识库，也可以用RAG实现吗？
+<q, a>
+query => 在知识库中找答案
+query => 预写一些答案出来，在知识库中查找
+query2doc
+
+doc2query，将知识库中的一些知识，预写一些问题出来；
+
+
+
+Q：一个大文件中上下文有逻辑关系，如何通过RAG检索出这种逻辑关系？目前chunk分块，检索的结果都是碎片化的，体现不出逻辑
+graphRAG 知识图谱
+chunk与chunk之间的边
+
+用es数据库
+
+老师可以讲一下hyde吗
+
+后面课程会教skill吗？
+
+老师，总感觉刚才这个代码好像没讲完就被新同学提问打断了，您可以帮我们再串一下吗？chatpdf-faiss.py
+
+    # 从文本块创建知识库
+    knowledgeBase = FAISS.from_texts(chunks, embeddings)
+
+

@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql://root:password@db:3306/cloudengine
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: cloudengine
+    volumes:
+      - mysql_data:/var/lib/mysql
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+volumes:
+  mysql_data:
+  redis_data:

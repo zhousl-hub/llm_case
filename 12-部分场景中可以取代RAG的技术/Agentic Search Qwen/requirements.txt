@@ -1,0 +1,7 @@
+chromadb==0.4.22
+whoosh>=2.7.4
+openai>=1.0.0
+jieba>=0.42.1
+numpy==1.26.4
+posthog<3
+streamlit>=1.0.0

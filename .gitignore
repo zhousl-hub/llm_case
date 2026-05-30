@@ -1,11 +1,24 @@
-.DS_Store
+# Virtual environment
+.venv/
+venv/
+
+# PyCharm
+.idea/
+
+# Python cache
 __pycache__/
 *.pyc
-.pyo
-.pyd
-Python/
-*.so
-*.egg
+*.pyo
 *.egg-info/
 dist/
 build/
+
+# Large model files
+*.onnx
+*.safetensors
+pytorch_model.bin
+word2Vec.model
+
+# Videos and archives
+*.mp4
+*.zip
