@@ -2,7 +2,7 @@ import json
 import tiktoken
 from pathlib import Path
 from typing import List, Dict, Optional
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_classic.text_splitter import RecursiveCharacterTextSplitter
 import pandas as pd
 import os
 

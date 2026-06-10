@@ -12,7 +12,7 @@ text = "上海迪士尼乐园门票分为一日票、两日票和特定日票三
 input = [{'text': text}]
 # 调用模型接口
 resp = dashscope.MultiModalEmbedding.call(
-    model="tongyi-embedding-vision-plus",
+    model="tongyi-embedding-vision-plus-2026-03-06",
     input=input
 )
 

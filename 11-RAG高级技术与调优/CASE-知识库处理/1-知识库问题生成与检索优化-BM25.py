@@ -37,7 +37,7 @@ def preprocess_json_response(response):
     return response.strip()  # 移除首尾空白
 
 # 基于 prompt 生成文本
-def get_completion(prompt, model="qwen-turbo-latest"):
+def get_completion(prompt, model="qwen3.7-max"):
     messages = [{"role": "user", "content": prompt}]
     response = client.chat.completions.create(
         model=model,
@@ -65,7 +65,7 @@ def preprocess_text(text):
     return words
 
 class KnowledgeBaseOptimizer:
-    def __init__(self, model="qwen-turbo-latest"):
+    def __init__(self, model="qwen3.7-max"):
         self.model = model
         self.knowledge_base = []
         self.content_bm25 = None

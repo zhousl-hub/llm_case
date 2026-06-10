@@ -21,7 +21,7 @@ input = [{'image': image_data}]
 
 # 调用模型接口
 resp = dashscope.MultiModalEmbedding.call(
-    model="tongyi-embedding-vision-plus",
+    model="tongyi-embedding-vision-plus-2026-03-06",
     input=input
 )
 if resp.status_code == HTTPStatus.OK:

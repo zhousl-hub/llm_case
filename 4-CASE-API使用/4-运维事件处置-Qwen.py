@@ -45,7 +45,6 @@ def get_response(messages):
     return response
     
 current_locals = locals()
-current_locals
 
 tools = [
         {
@@ -79,7 +78,7 @@ while True:
 
     if response.output.choices[0].finish_reason == 'stop':
         break
-    
+
     # 判断用户是否要call function
     if message.tool_calls:
         # 获取fn_name, fn_arguments

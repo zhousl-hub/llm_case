@@ -190,7 +190,7 @@ def main():
         print(f"提取的文本长度: {len(text)} 个字符。")
         knowledgeBase = process_text_with_splitter(text, page_numbers, save_path=vector_db_path)
 
-    llm = Tongyi(model_name="deepseek-v3", dashscope_api_key=DASHSCOPE_API_KEY)
+    llm = Tongyi(model_name="deepseek-v4-flash", dashscope_api_key=DASHSCOPE_API_KEY)
 
     queries = [
         "客户经理被投诉了，投诉一次扣多少分",

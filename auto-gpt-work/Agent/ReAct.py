@@ -3,9 +3,9 @@ from typing import List, Tuple
 
 from langchain_community.chat_message_histories.in_memory import ChatMessageHistory
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain.output_parsers import PydanticOutputParser, OutputFixingParser
-from langchain.schema.output_parser import StrOutputParser
-from langchain.tools.base import BaseTool
+from langchain_classic.output_parsers import PydanticOutputParser, OutputFixingParser
+from langchain_classic.schema.output_parser import StrOutputParser
+from langchain_classic.tools.base import BaseTool
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.tools import  render_text_description
 from pydantic import ValidationError

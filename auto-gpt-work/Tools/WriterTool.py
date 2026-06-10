@@ -1,5 +1,5 @@
-from langchain.prompts import ChatPromptTemplate
-from langchain.prompts.chat import SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from langchain_classic.prompts import ChatPromptTemplate
+from langchain_classic.prompts.chat import SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI

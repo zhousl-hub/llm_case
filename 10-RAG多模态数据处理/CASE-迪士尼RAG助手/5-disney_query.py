@@ -24,7 +24,7 @@ client = OpenAI(
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
 )
 
-MULTIMODAL_EMBEDDING_MODEL = "tongyi-embedding-vision-plus"
+MULTIMODAL_EMBEDDING_MODEL = "tongyi-embedding-vision-plus-2026-03-06"
 INDEX_FILE = "disney_index.faiss"
 METADATA_FILE = "disney_metadata.json"
 

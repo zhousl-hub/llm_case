@@ -31,7 +31,7 @@ def get_current_weather(location, unit="摄氏度"):
 def get_response(messages):
     try:
         response = dashscope.Generation.call(
-            model='qwen-max',
+            model='deepseek-v4-flash',
             messages=messages,
             functions=functions,
             result_format='message'
@@ -59,8 +59,9 @@ def run_conversation():
     print('message=', message)
     
     # Step 2, 判断用户是否要call function
-    if hasattr(message, 'function_call') and message.function_call:
-        function_call = message.function_call
+    tool_calls = getattr(message, 'tool_calls', None)
+    if tool_calls:
+        function_call = tool_calls[0]['function']
         tool_name = function_call['name']
         # Step 3, 执行function call
         arguments = json.loads(function_call['arguments'])
@@ -69,19 +70,25 @@ def run_conversation():
             location=arguments.get('location'),
             unit=arguments.get('unit'),
         )
-        tool_info = {"role": "function", "name": tool_name, "content": tool_response}
+        tool_info = {
+            "role": "tool",
+            "tool_call_id": tool_calls[0]['id'],
+            "name": tool_name,
+            "content": tool_response
+        }
         print('tool_info=', tool_info)
         messages.append(tool_info)
         print('messages=', messages)
-        
+
         #Step 4, 得到第二次响应
         response = get_response(messages)
         if not response or not response.output:
             print("获取第二次响应失败")
             return None
-            
+
         print('response=', response)
         message = response.output.choices[0].message
+
         return message
     return message
 
@@ -108,6 +115,8 @@ if __name__ == "__main__":
     result = run_conversation()
     if result:
         print("最终结果:", result)
+        print('-' * 100)
+        print(result.content)
     else:
         print("对话执行失败")
 

@@ -13,7 +13,7 @@ video = "https://dataset-1255932437.cos.ap-nanjing.myqcloud.com/mp4/car.mp4"
 input = [{'video': video}]
 # 调用模型接口
 resp = dashscope.MultiModalEmbedding.call(
-    model="tongyi-embedding-vision-plus",
+    model="tongyi-embedding-vision-plus-2026-03-06",
     input=input
 )
 

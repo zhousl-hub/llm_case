@@ -10,7 +10,7 @@ from datetime import datetime
 dashscope.api_key = os.getenv('DASHSCOPE_API_KEY')
 
 # 基于 prompt 生成文本
-def get_completion(prompt, model="qwen-turbo-latest"):
+def get_completion(prompt, model="qwen3.7-max"):
     messages = [{"role": "user", "content": prompt}]
     response = dashscope.Generation.call(
         model=model,
@@ -21,7 +21,7 @@ def get_completion(prompt, model="qwen-turbo-latest"):
     return response.output.choices[0].message.content
 
 class WebSearchQueryRewriter:
-    def __init__(self, model="qwen-turbo-latest"):
+    def __init__(self, model="qwen3.7-max"):
         self.model = model
     
     def identify_web_search_needs(self, query, conversation_history=""):

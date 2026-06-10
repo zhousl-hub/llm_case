@@ -1,7 +1,7 @@
 from PyPDF2 import PdfReader
-from langchain.chains.question_answering import load_qa_chain
+from langchain_classic.chains.question_answering import load_qa_chain
 from langchain_community.callbacks.manager import get_openai_callback
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_classic.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.vectorstores import FAISS
 from typing import List, Tuple
@@ -189,7 +189,7 @@ docs = loaded_knowledgeBase.similarity_search("客户经理每年评聘申报时
 """
 
 from langchain_community.llms import Tongyi
-llm = Tongyi(model_name="deepseek-v3", dashscope_api_key=DASHSCOPE_API_KEY) # qwen-turbo
+llm = Tongyi(model_name="deepseek-v4-flash", dashscope_api_key=DASHSCOPE_API_KEY) # qwen-turbo
 
 # 设置查询问题
 query = "客户经理被投诉了，投诉一次扣多少分"

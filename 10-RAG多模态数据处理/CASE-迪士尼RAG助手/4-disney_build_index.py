@@ -22,7 +22,7 @@ dashscope.api_key = DASHSCOPE_API_KEY
 
 DOCS_DIR = "disney_knowledge_base"
 IMG_DIR = os.path.join(DOCS_DIR, "images")
-MULTIMODAL_EMBEDDING_MODEL = "tongyi-embedding-vision-plus"
+MULTIMODAL_EMBEDDING_MODEL = "tongyi-embedding-vision-plus-2026-03-06"
 
 # 输出文件
 INDEX_FILE = "disney_index.faiss"

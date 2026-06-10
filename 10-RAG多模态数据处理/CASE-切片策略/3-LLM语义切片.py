@@ -39,7 +39,7 @@ def advanced_semantic_chunking_with_llm(text, max_chunk_size=512):
     try:
         print("正在调用LLM进行语义切片...")
         response = client.chat.completions.create(
-            model="qwen-turbo-latest",
+            model="qwen3.7-max",
             messages=[
                 {"role": "system", "content": "你是一个专业的文本切片助手。请严格按照JSON格式返回结果，不要添加任何额外的标记。"},
                 {"role": "user", "content": prompt}

@@ -2,7 +2,7 @@ import json
 import tiktoken
 from pathlib import Path
 from typing import List, Dict, Optional
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_classic.text_splitter import RecursiveCharacterTextSplitter
 
 # 文本分块工具类，支持按页分块、表格插入、token统计等
 class TextSplitter():

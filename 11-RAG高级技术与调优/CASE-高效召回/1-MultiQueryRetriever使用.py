@@ -8,7 +8,7 @@ import os
 DASHSCOPE_API_KEY = os.getenv('DASHSCOPE_API_KEY')
 if not DASHSCOPE_API_KEY:
     raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
-llm = Tongyi(model_name="deepseek-v3", dashscope_api_key=DASHSCOPE_API_KEY)
+llm = Tongyi(model_name="deepseek-v4-flash", dashscope_api_key=DASHSCOPE_API_KEY)
 
 # 创建嵌入模型
 embeddings = DashScopeEmbeddings(

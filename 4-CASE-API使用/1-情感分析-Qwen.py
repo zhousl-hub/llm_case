@@ -16,7 +16,7 @@ dashscope.api_key = api_key
 # 封装模型响应函数
 def get_response(messages):
     response = dashscope.Generation.call(
-        model='deepseek-v3',
+        model='deepseek-v4-flash',
         messages=messages,
         result_format='message'  # 将输出设置为message形式
     )

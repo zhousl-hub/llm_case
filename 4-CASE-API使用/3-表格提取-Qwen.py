@@ -15,7 +15,7 @@ dashscope.api_key = api_key
 # 封装模型响应函数
 def get_response(messages):
     response = dashscope.MultiModalConversation.call(
-        model='qwen-vl-plus',
+        model='qwen3.6-plus',
         messages=messages
     )
     return response
@@ -28,11 +28,9 @@ content = [
 messages=[{"role": "user", "content": content}]
 # 得到响应
 response = get_response(messages)
-response
 
 
 # In[2]:
-
 
 print(response.output.choices[0].message.content[0]['text'])
 

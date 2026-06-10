@@ -19,6 +19,7 @@ print(model.wv.most_similar(positive=['孙悟空', '唐僧'], negative=['孙行�
 model2 = word2vec.Word2Vec(sentences, vector_size=128, window=5, min_count=5, workers=multiprocessing.cpu_count())
 # 保存模型
 model2.save('./models/word2Vec.model')
+print('-'*100)
 print(model2.wv.similarity('孙悟空', '猪八戒'))
 print(model2.wv.similarity('孙悟空', '孙行者'))
 print(model2.wv.most_similar(positive=['孙悟空', '唐僧'], negative=['孙行者']))

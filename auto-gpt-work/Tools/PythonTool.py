@@ -1,7 +1,7 @@
 import re
 from typing import Union
 
-from langchain.tools import StructuredTool
+from langchain_classic.tools import StructuredTool
 from langchain_core.language_models import BaseChatModel, BaseLanguageModel
 from langchain_core.output_parsers import BaseOutputParser, StrOutputParser
 from langchain_core.prompts import PromptTemplate

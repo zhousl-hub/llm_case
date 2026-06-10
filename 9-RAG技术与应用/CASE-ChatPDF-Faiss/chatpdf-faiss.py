@@ -187,7 +187,7 @@ docs = loaded_knowledgeBase.similarity_search("客户经理每年评聘申报时
 
 
 from langchain_community.llms import Tongyi
-llm = Tongyi(model_name="deepseek-v3", dashscope_api_key=DASHSCOPE_API_KEY) # qwen-turbo
+llm = Tongyi(model_name="deepseek-v4-flash", dashscope_api_key=DASHSCOPE_API_KEY) # qwen-turbo
 
 # 设置查询问题
 query = "客户经理被投诉了，投诉一次扣多少分"

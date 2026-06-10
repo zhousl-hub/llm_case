@@ -1,7 +1,7 @@
 import warnings
 warnings.filterwarnings("ignore")
 
-from langchain.tools import StructuredTool
+from langchain_classic.tools import StructuredTool
 from .FileQATool import ask_docment
 from .WriterTool import write
 from .EmailTool import send_email

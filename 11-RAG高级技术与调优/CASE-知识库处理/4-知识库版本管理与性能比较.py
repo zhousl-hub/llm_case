@@ -25,7 +25,7 @@ TEXT_EMBEDDING_MODEL = "text-embedding-v4"
 TEXT_EMBEDDING_DIM = 1024
 
 # 基于 prompt 生成文本
-def get_completion(prompt, model="qwen-turbo-latest"):
+def get_completion(prompt, model="qwen3.7-max"):
     messages = [{"role": "user", "content": prompt}]
     response = dashscope.Generation.call(
         model=model,
@@ -45,7 +45,7 @@ def get_text_embedding(text):
     return response.data[0].embedding
 
 class KnowledgeBaseVersionManager:
-    def __init__(self, model="qwen-turbo-latest"):
+    def __init__(self, model="qwen3.7-max"):
         self.model = model
         self.versions = {}
         

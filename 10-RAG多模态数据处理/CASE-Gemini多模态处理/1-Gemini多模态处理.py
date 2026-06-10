@@ -4,9 +4,32 @@
 # In[5]:
 
 
+import os
+import sys
+from dotenv import load_dotenv
 from google import genai
 
-client = genai.Client()
+load_dotenv()
+api_key = os.getenv("GOOGLE_API_KEY")
+
+# Windows 兜底：当前 bash 可能未继承系统环境变量，直接从注册表读取
+if not api_key and sys.platform == "win32":
+    try:
+        import winreg
+        with winreg.OpenKey(
+            winreg.HKEY_LOCAL_MACHINE,
+            r"SYSTEM\CurrentControlSet\Control\Session Manager\Environment",
+        ) as key:
+            api_key, _ = winreg.QueryValueEx(key, "GOOGLE_API_KEY")
+    except Exception:
+        pass
+
+if not api_key:
+    raise ValueError(
+        "未找到 GOOGLE_API_KEY。请在同级目录创建 .env 文件并写入：GOOGLE_API_KEY=你的密钥，"
+        "或在系统环境变量中设置该变量后重启终端。"
+    )
+client = genai.Client(api_key=api_key)
 # 文字输出
 response = client.models.generate_content(
     model="gemini-3-flash-preview",

@@ -262,7 +262,7 @@ def main():
     hybrid_retriever = HybridRetriever(chunks, knowledgeBase, alpha=0.5)
     print("混合检索器已创建 (BM25 + Vector, alpha=0.5)")
 
-    llm = Tongyi(model_name="deepseek-v3", dashscope_api_key=DASHSCOPE_API_KEY)
+    llm = Tongyi(model_name="deepseek-v4-flash", dashscope_api_key=DASHSCOPE_API_KEY)
 
     queries = [
         "客户经理被投诉了，投诉一次扣多少分",

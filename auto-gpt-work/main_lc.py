@@ -1,13 +1,13 @@
 from pydantic.v1 import BaseModel, Field
 import re
 from typing import Union
-from langchain.output_parsers import OutputFixingParser
+from langchain_classic.output_parsers import OutputFixingParser
 from langchain_community.chat_message_histories.in_memory import ChatMessageHistory
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain.agents import AgentExecutor, create_react_agent, AgentOutputParser
+from langchain_classic.agents import AgentExecutor, create_react_agent, AgentOutputParser
 
 from Models.Factory import ChatModelFactory
 from Tools import *
