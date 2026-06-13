@@ -2,9 +2,27 @@ from __future__ import annotations
 import logging
 import json
 import os
+import sys
 from typing import Optional
 from datetime import datetime
 from config import LOGS_DIR
+
+
+class UTF8StreamHandler(logging.StreamHandler):
+    """控制台输出使用 UTF-8，避免 Windows 终端中文乱码。"""
+
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+            stream = self.stream
+            if hasattr(stream, "buffer"):
+                stream.buffer.write((msg + self.terminator).encode("utf-8", errors="replace"))
+                stream.flush()
+            else:
+                stream.write(msg + self.terminator)
+                stream.flush()
+        except Exception:
+            self.handleError(record)
 
 
 class Logger:
@@ -25,7 +43,8 @@ class Logger:
         self.logger.setLevel(logging.DEBUG)
 
         if not self.logger.handlers:
-            console_handler = logging.StreamHandler()
+            # 使用 stderr：Streamlit 会拦截 stdout，终端看不到日志
+            console_handler = UTF8StreamHandler(sys.stderr)
             console_handler.setLevel(logging.INFO)
             console_format = logging.Formatter(
                 "%(asctime)s | %(levelname)-8s | %(message)s",

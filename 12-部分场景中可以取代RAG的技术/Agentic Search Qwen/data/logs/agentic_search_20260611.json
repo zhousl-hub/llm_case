@@ -1,0 +1,59 @@
+{"timestamp": "2026-06-11T16:47:17.153746", "level": "INFO", "message": "[Round 1] Decision: Call enterprise_systems", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:17.154886", "level": "INFO", "message": "[Round 1] Search: engine=enterprise_systems, query={}", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:22.130675", "level": "INFO", "message": "[Round 2] Decision: Call enterprise_call", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:22.131680", "level": "INFO", "message": "[Round 2] Search: engine=enterprise_call, query={\"action\": \"search_employees\", \"params\": {\"keyword\": \"技术部\"}, \"system\": \"hr\"}", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:22.138687", "level": "INFO", "message": "[Round 2] Decision: Call database_search", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:22.526684", "level": "INFO", "message": "[Round 2] Search: engine=database_search, query={\"limit\": 50, \"query\": \"技术部\", \"table\": \"employees\"}", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:25.727124", "level": "INFO", "message": "[Round 3] Decision: Call database_sql", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:25.730820", "level": "INFO", "message": "[Round 3] Search: engine=database_sql, query={\"sql\": \"SELECT * FROM employees WHERE department = '技术部' ORDER BY id\"}", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:47:41.586952", "level": "INFO", "message": "[Final] Answer after 4 rounds", "module": "logger", "function": "info", "line": 57}
+{"timestamp": "2026-06-11T16:48:36.384360", "level": "INFO", "message": "[Round 2] Search: engine=database_search, query={\"query\": \"技术部\", \"table\": \"employees\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:26.278688", "level": "INFO", "message": "[Round 1] Decision: Call enterprise_systems", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:26.282631", "level": "INFO", "message": "[Round 1] Search: engine=enterprise_systems, query={}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:31.286091", "level": "INFO", "message": "[Round 2] Decision: Call enterprise_call", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:31.289103", "level": "INFO", "message": "[Round 2] Search: engine=enterprise_call, query={\"action\": \"search_employees\", \"params\": {\"keyword\": \"技术部\"}, \"system\": \"hr\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:31.295229", "level": "INFO", "message": "[Round 2] Decision: Call database_search", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:31.296817", "level": "INFO", "message": "[Round 2] Search: engine=database_search, query={\"query\": \"技术部\", \"table\": \"employees\", \"limit\": 50}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:53:40.182900", "level": "INFO", "message": "[Final] Answer after 3 rounds", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:11.658042", "level": "INFO", "message": "[Round 1] Decision: Call enterprise_systems", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:11.661457", "level": "INFO", "message": "[Round 1] Search: engine=enterprise_systems, query={}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:14.702872", "level": "INFO", "message": "[Round 2] Decision: Call enterprise_call", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:14.706316", "level": "INFO", "message": "[Round 2] Search: engine=enterprise_call, query={\"system\": \"wiki\", \"action\": \"search_policies\", \"params\": {\"keyword\": \"远程办公\"}}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:16.901061", "level": "INFO", "message": "[Round 3] Decision: Call keyword_search", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:17.006311", "level": "INFO", "message": "[Round 3] Search: engine=keyword_search, query={\"query\": \"远程办公\", \"limit\": 10}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T16:56:25.185747", "level": "INFO", "message": "[Final] Answer after 4 rounds", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:20.444591", "level": "INFO", "message": "[Round 1] Decision: Call enterprise_call", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:20.449592", "level": "INFO", "message": "[Round 1] Search: engine=enterprise_call, query={\"action\": \"search_tech_docs\", \"params\": {\"query\": \"微服务架构\"}, \"system\": \"wiki\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:24.020226", "level": "INFO", "message": "[Round 2] Decision: Call keyword_search", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:24.033694", "level": "INFO", "message": "[Round 2] Search: engine=keyword_search, query={\"limit\": 10, \"query\": \"微服务架构设计\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:26.855611", "level": "INFO", "message": "[Round 3] Decision: Call vector_search", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:42.367203", "level": "INFO", "message": "[Round 3] Search: engine=vector_search, query={\"n_results\": 5, \"query\": \"微服务架构设计 服务拆分 技术栈\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:55.142470", "level": "INFO", "message": "[Round 4] Decision: Call code_search", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:00:55.149513", "level": "INFO", "message": "[Round 4] Search: engine=code_search, query={\"limit\": 10, \"query\": \"微服务 架构 配置\", \"search_type\": \"content\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:01:00.021617", "level": "INFO", "message": "[Round 5] Decision: Call vector_search", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:01:00.800423", "level": "INFO", "message": "[Round 5] Search: engine=vector_search, query={\"n_results\": 5, \"query\": \"微服务 Spring Cloud Kubernetes 服务拆分 网关\"}", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:01:18.568147", "level": "INFO", "message": "[Final] Answer after 6 rounds", "module": "logger", "function": "info", "line": 75}
+{"timestamp": "2026-06-11T17:04:11.180819", "level": "INFO", "message": "[Final] Answer after 1 rounds", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:04:58.304599", "level": "INFO", "message": "[Round 1] Decision: Call vector_info", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:04:58.339093", "level": "INFO", "message": "[Round 1] Search: engine=vector_info, query={}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:04:58.344079", "level": "INFO", "message": "[Round 1] Decision: Call keyword_info", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:04:58.357728", "level": "INFO", "message": "[Round 1] Search: engine=keyword_info, query={}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:04:58.363827", "level": "INFO", "message": "[Round 1] Decision: Call enterprise_systems", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:04:58.364816", "level": "INFO", "message": "[Round 1] Search: engine=enterprise_systems, query={}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:04.422835", "level": "INFO", "message": "[Round 2] Decision: Call enterprise_call", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:04.426186", "level": "INFO", "message": "[Round 2] Search: engine=enterprise_call, query={\"system\": \"wiki\", \"action\": \"search_tech_docs\", \"params\": {\"keyword\": \"搜索服务\"}}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:04.454280", "level": "INFO", "message": "[Round 2] Decision: Call vector_search", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:05.878116", "level": "INFO", "message": "[Round 2] Search: engine=vector_search, query={\"query\": \"搜索服务实现 架构 技术\", \"n_results\": 5}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:05.916729", "level": "INFO", "message": "[Round 2] Decision: Call code_search", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:05.963331", "level": "INFO", "message": "[Round 2] Search: engine=code_search, query={\"query\": \"搜索服务\", \"search_type\": \"content\", \"limit\": 10}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:09.114436", "level": "INFO", "message": "[Round 3] Decision: Call code_read", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:09.116519", "level": "INFO", "message": "[Round 3] Search: engine=code_read, query={\"file_path\": \"src\\\\services\\\\search_service.py\"}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:14.154413", "level": "INFO", "message": "[Round 4] Decision: Call code_search", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:14.161439", "level": "INFO", "message": "[Round 4] Search: engine=code_search, query={\"query\": \"SearchService\", \"search_type\": \"symbol\", \"limit\": 10}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:17.204335", "level": "INFO", "message": "[Round 5] Decision: Call code_search", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:17.211331", "level": "INFO", "message": "[Round 5] Search: engine=code_search, query={\"query\": \"elasticsearch\", \"search_type\": \"content\", \"limit\": 10}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:21.962368", "level": "INFO", "message": "[Round 6] Decision: Call code_search", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:21.974061", "level": "INFO", "message": "[Round 6] Search: engine=code_search, query={\"query\": \"SearchService\", \"search_type\": \"content\", \"limit\": 10}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:25.157690", "level": "INFO", "message": "[Round 7] Decision: Call code_read", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:25.159679", "level": "INFO", "message": "[Round 7] Search: engine=code_read, query={\"file_path\": \"src\\\\routers\\\\search_router.py\"}", "module": "logger", "function": "info", "line": 76}
+{"timestamp": "2026-06-11T17:05:39.603959", "level": "INFO", "message": "[Final] Answer after 8 rounds", "module": "logger", "function": "info", "line": 76}

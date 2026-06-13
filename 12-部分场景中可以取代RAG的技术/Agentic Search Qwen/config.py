@@ -1,6 +1,21 @@
 import os
+import sys
 
 from dotenv import load_dotenv
+
+
+def _configure_stdio_utf8():
+    """Windows 控制台默认 GBK，统一为 UTF-8 避免中文日志乱码。"""
+    if sys.platform == "win32":
+        for stream in (sys.stdout, sys.stderr):
+            if stream is not None and hasattr(stream, "reconfigure"):
+                try:
+                    stream.reconfigure(encoding="utf-8", errors="replace")
+                except Exception:
+                    pass
+
+
+_configure_stdio_utf8()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))

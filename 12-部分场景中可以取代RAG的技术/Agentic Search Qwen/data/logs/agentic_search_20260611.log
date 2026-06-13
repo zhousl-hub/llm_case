@@ -1,0 +1,59 @@
+2026-06-11 16:47:17 | INFO     | info:57 | [Round 1] Decision: Call enterprise_systems
+2026-06-11 16:47:17 | INFO     | info:57 | [Round 1] Search: engine=enterprise_systems, query={}
+2026-06-11 16:47:22 | INFO     | info:57 | [Round 2] Decision: Call enterprise_call
+2026-06-11 16:47:22 | INFO     | info:57 | [Round 2] Search: engine=enterprise_call, query={"action": "search_employees", "params": {"keyword": "技术部"}, "system": "hr"}
+2026-06-11 16:47:22 | INFO     | info:57 | [Round 2] Decision: Call database_search
+2026-06-11 16:47:22 | INFO     | info:57 | [Round 2] Search: engine=database_search, query={"limit": 50, "query": "技术部", "table": "employees"}
+2026-06-11 16:47:25 | INFO     | info:57 | [Round 3] Decision: Call database_sql
+2026-06-11 16:47:25 | INFO     | info:57 | [Round 3] Search: engine=database_sql, query={"sql": "SELECT * FROM employees WHERE department = '技术部' ORDER BY id"}
+2026-06-11 16:47:41 | INFO     | info:57 | [Final] Answer after 4 rounds
+2026-06-11 16:48:36 | INFO     | info:75 | [Round 2] Search: engine=database_search, query={"query": "技术部", "table": "employees"}
+2026-06-11 16:53:26 | INFO     | info:75 | [Round 1] Decision: Call enterprise_systems
+2026-06-11 16:53:26 | INFO     | info:75 | [Round 1] Search: engine=enterprise_systems, query={}
+2026-06-11 16:53:31 | INFO     | info:75 | [Round 2] Decision: Call enterprise_call
+2026-06-11 16:53:31 | INFO     | info:75 | [Round 2] Search: engine=enterprise_call, query={"action": "search_employees", "params": {"keyword": "技术部"}, "system": "hr"}
+2026-06-11 16:53:31 | INFO     | info:75 | [Round 2] Decision: Call database_search
+2026-06-11 16:53:31 | INFO     | info:75 | [Round 2] Search: engine=database_search, query={"query": "技术部", "table": "employees", "limit": 50}
+2026-06-11 16:53:40 | INFO     | info:75 | [Final] Answer after 3 rounds
+2026-06-11 16:56:11 | INFO     | info:75 | [Round 1] Decision: Call enterprise_systems
+2026-06-11 16:56:11 | INFO     | info:75 | [Round 1] Search: engine=enterprise_systems, query={}
+2026-06-11 16:56:14 | INFO     | info:75 | [Round 2] Decision: Call enterprise_call
+2026-06-11 16:56:14 | INFO     | info:75 | [Round 2] Search: engine=enterprise_call, query={"system": "wiki", "action": "search_policies", "params": {"keyword": "远程办公"}}
+2026-06-11 16:56:16 | INFO     | info:75 | [Round 3] Decision: Call keyword_search
+2026-06-11 16:56:17 | INFO     | info:75 | [Round 3] Search: engine=keyword_search, query={"query": "远程办公", "limit": 10}
+2026-06-11 16:56:25 | INFO     | info:75 | [Final] Answer after 4 rounds
+2026-06-11 17:00:20 | INFO     | info:75 | [Round 1] Decision: Call enterprise_call
+2026-06-11 17:00:20 | INFO     | info:75 | [Round 1] Search: engine=enterprise_call, query={"action": "search_tech_docs", "params": {"query": "微服务架构"}, "system": "wiki"}
+2026-06-11 17:00:24 | INFO     | info:75 | [Round 2] Decision: Call keyword_search
+2026-06-11 17:00:24 | INFO     | info:75 | [Round 2] Search: engine=keyword_search, query={"limit": 10, "query": "微服务架构设计"}
+2026-06-11 17:00:26 | INFO     | info:75 | [Round 3] Decision: Call vector_search
+2026-06-11 17:00:42 | INFO     | info:75 | [Round 3] Search: engine=vector_search, query={"n_results": 5, "query": "微服务架构设计 服务拆分 技术栈"}
+2026-06-11 17:00:55 | INFO     | info:75 | [Round 4] Decision: Call code_search
+2026-06-11 17:00:55 | INFO     | info:75 | [Round 4] Search: engine=code_search, query={"limit": 10, "query": "微服务 架构 配置", "search_type": "content"}
+2026-06-11 17:01:00 | INFO     | info:75 | [Round 5] Decision: Call vector_search
+2026-06-11 17:01:00 | INFO     | info:75 | [Round 5] Search: engine=vector_search, query={"n_results": 5, "query": "微服务 Spring Cloud Kubernetes 服务拆分 网关"}
+2026-06-11 17:01:18 | INFO     | info:75 | [Final] Answer after 6 rounds
+2026-06-11 17:04:11 | INFO     | info:76 | [Final] Answer after 1 rounds
+2026-06-11 17:04:58 | INFO     | info:76 | [Round 1] Decision: Call vector_info
+2026-06-11 17:04:58 | INFO     | info:76 | [Round 1] Search: engine=vector_info, query={}
+2026-06-11 17:04:58 | INFO     | info:76 | [Round 1] Decision: Call keyword_info
+2026-06-11 17:04:58 | INFO     | info:76 | [Round 1] Search: engine=keyword_info, query={}
+2026-06-11 17:04:58 | INFO     | info:76 | [Round 1] Decision: Call enterprise_systems
+2026-06-11 17:04:58 | INFO     | info:76 | [Round 1] Search: engine=enterprise_systems, query={}
+2026-06-11 17:05:04 | INFO     | info:76 | [Round 2] Decision: Call enterprise_call
+2026-06-11 17:05:04 | INFO     | info:76 | [Round 2] Search: engine=enterprise_call, query={"system": "wiki", "action": "search_tech_docs", "params": {"keyword": "搜索服务"}}
+2026-06-11 17:05:04 | INFO     | info:76 | [Round 2] Decision: Call vector_search
+2026-06-11 17:05:05 | INFO     | info:76 | [Round 2] Search: engine=vector_search, query={"query": "搜索服务实现 架构 技术", "n_results": 5}
+2026-06-11 17:05:05 | INFO     | info:76 | [Round 2] Decision: Call code_search
+2026-06-11 17:05:05 | INFO     | info:76 | [Round 2] Search: engine=code_search, query={"query": "搜索服务", "search_type": "content", "limit": 10}
+2026-06-11 17:05:09 | INFO     | info:76 | [Round 3] Decision: Call code_read
+2026-06-11 17:05:09 | INFO     | info:76 | [Round 3] Search: engine=code_read, query={"file_path": "src\\services\\search_service.py"}
+2026-06-11 17:05:14 | INFO     | info:76 | [Round 4] Decision: Call code_search
+2026-06-11 17:05:14 | INFO     | info:76 | [Round 4] Search: engine=code_search, query={"query": "SearchService", "search_type": "symbol", "limit": 10}
+2026-06-11 17:05:17 | INFO     | info:76 | [Round 5] Decision: Call code_search
+2026-06-11 17:05:17 | INFO     | info:76 | [Round 5] Search: engine=code_search, query={"query": "elasticsearch", "search_type": "content", "limit": 10}
+2026-06-11 17:05:21 | INFO     | info:76 | [Round 6] Decision: Call code_search
+2026-06-11 17:05:21 | INFO     | info:76 | [Round 6] Search: engine=code_search, query={"query": "SearchService", "search_type": "content", "limit": 10}
+2026-06-11 17:05:25 | INFO     | info:76 | [Round 7] Decision: Call code_read
+2026-06-11 17:05:25 | INFO     | info:76 | [Round 7] Search: engine=code_read, query={"file_path": "src\\routers\\search_router.py"}
+2026-06-11 17:05:39 | INFO     | info:76 | [Final] Answer after 8 rounds
