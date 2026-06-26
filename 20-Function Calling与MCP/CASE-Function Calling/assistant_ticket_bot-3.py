@@ -188,7 +188,7 @@ def generate_chart_png(df_sql, save_path):
 def init_agent_service():
     """初始化门票助手服务"""
     llm_cfg = {
-        'model': 'qwen-turbo',  # 修正模型名称，避免日期格式问题
+        'model': 'qwen-plus',  # 修正模型名称，避免日期格式问题
         'timeout': 30,
         'retry_count': 3,
     }
@@ -198,7 +198,7 @@ def init_agent_service():
             name='门票助手',
             description='门票查询与订单分析',
             system_message=system_prompt,
-            function_list=['exc_sql', 'code_interpreter'],  # 移除绘图工具
+            function_list=['exc_sql'],  # 移除绘图工具
         )
         print("助手初始化成功！")
         return bot

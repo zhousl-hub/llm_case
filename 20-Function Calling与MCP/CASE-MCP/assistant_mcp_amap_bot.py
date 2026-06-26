@@ -51,7 +51,7 @@ def init_agent_service():
                     "@amap/amap-maps-mcp-server"
                 ],
                 "env": {
-                    "AMAP_MAPS_API_KEY": os.getenv('AMAP_MAPS_API_KEY', '')
+                    "AMAP_MAPS_API_KEY": os.getenv('AMAP_MAPS_API_KEY', 'bc9364cfdfcd4fe81d4889442def8716')
                 }
             }
         }

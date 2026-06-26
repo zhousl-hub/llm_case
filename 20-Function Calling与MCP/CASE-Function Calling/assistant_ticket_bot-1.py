@@ -81,7 +81,7 @@ class ExcSQLTool(BaseTool):
 def init_agent_service():
     """初始化门票助手服务"""
     llm_cfg = {
-        'model': 'qwen-turbo-latest',
+        'model': 'qwen-plus',
         'timeout': 30,
         'retry_count': 3,
     }

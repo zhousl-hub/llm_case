@@ -1,8 +1,12 @@
 dashscope==1.22.1
+gradio==5.23.1
 matplotlib==3.10.3
+mysql-connector-python==9.7.0
 numpy==2.3.0
+pymysql==1.2.0
 pandas==2.3.0
+pydantic==2.9.2
 qwen_agent==0.0.25
 scikit_learn==1.7.0
 SQLAlchemy==2.0.23
-~wen_agent==0.0.19
+tabulate==0.10.0

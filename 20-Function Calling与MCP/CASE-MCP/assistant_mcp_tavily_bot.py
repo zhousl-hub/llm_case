@@ -35,6 +35,10 @@ def init_agent_service():
         'model': 'qwen-max',
         'timeout': 30,  # 设置模型调用超时时间
         'retry_count': 3,  # 设置重试次数
+        'generate_cfg': {
+            # 与 qwen-max 上下文上限对齐；过长内容由 chatbot_sanitizer 在工具层截断
+            'max_input_tokens': 30000,
+        },
     }
     # 系统角色设定
     system = ('你扮演一个搜索助手，你具有网络搜索、信息检索、内容提取等能力。'
@@ -52,7 +56,7 @@ def init_agent_service():
                 "autoApprove": [],
                 "disabled": False,
                 "env": {
-                    "TAVILY_API_KEY": os.getenv('TAVILY_API_KEY', 'your-api-key-here')
+                    "TAVILY_API_KEY": os.getenv('TAVILY_API_KEY', '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')
                 }
             }
         }
