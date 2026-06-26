@@ -1,0 +1,350 @@
+Q：CASE-投顾AI助手\1-hybrid_wealth_advisor_langgraph_langsmith.py 这个代码不能运行
+
+
+Q：老师 我最近做了一个agent llm用的是chatgpt的API，如果我想大陆用户也用到这个agent该怎么部署
+
+
+Q：老师 咱后面会讲推理优化这方面的内容吗
+vllm, sglang
+
+Q：阿里云百炼那个API里面有些模型的url和网站上的名字不一致，这个有没办法找到实际的名字呢
+
+
+Q：导入mcp server 是不是必须先下载node.js呢
+
+
+Q：Claude code 配置CC Switch，一直报无法找到模型，这个是如何配置的
+
+
+Q：双非转行找工作太难了
+
+
+Q：陈老师，我们学完了可以在您的公司兼职吗？
+
+
+Q：有没有不费token的agent框架，之前讲的react也费token
+qwen-flash, deepseek-v4-flash
+
+Q：不是response的话不是基本通用的吗
+
+
+Q：langgraph版本不对langgraph>=1.0.0
+
+
+Q：是的 我现在就在墨尔本
+
+
+Q：代码重构有没有比较好的agent和skill
+claude code + opus4.8
+
+Q：如果要给电子制造业，搭建AI中台，用什么开源项目或者框架比较主流？
+LangChain/LangGraph, Qwen-Agent, LlamaIndex
+OpenClaw, nanobot, hermes + Skill
+
+
+Q：老师厉害，居然抢到了，我抢了2个月了
+
+Q：数据分析以后肯定是ai做的
+
+
+Q：computer science现在找工作不是很艰难吗
+
+Q：感觉Claude opus 4.8代码能力不如gpt5.5
+
+
+Q：GPT 5.5感觉也很不错
+
+
+Q：gpt对比glm 代码能力相差多少？老师有没有使用体验讲一下？
+
+
+Q：langgraph 要去bi li bi li专门学技术细节吗
+
+
+Q：前两节课没听，这节课跟得上么
+
+
+Q：利用AI做Facebook运营，如何搭建比较合适?
+
+
+Q：老师pageindex怎么样
+
+Q：ai spring +agentscope 有市场吗
+
+
+
+PROMPT 单独放到一个  .yaml文件中，用于提示词的管理
+
+REACTIVE_PROMPT: 你是一个财富管理投顾AI助手，专注于提供快速准确的响应。请针对用户的查询提供直接的回答。
+
+
+            # 添加 LangSmith 配置：标签和元数据
+            config = RunnableConfig(
+                tags=[
+                    "wealth-advisor",
+                    "hybrid-agent",
+                    f"customer-{customer_id}",
+                    customer_profile.get("risk_tolerance", "unknown")
+                ],
+                metadata={
+                    "customer_id": customer_id,
+                    "risk_tolerance": customer_profile.get("risk_tolerance", "unknown"),
+                    "investment_horizon": customer_profile.get("investment_horizon", "unknown"),
+                    "portfolio_value": customer_profile.get("portfolio_value", 0),
+                    "user_query": user_query[:100],  # 只记录前100个字符
+                    "timestamp": datetime.now().isoformat()
+                },
+                run_name=f"wealth-advisor-{customer_id}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+            )
+
+
+tags作用 A/B测试
+
+REACTIVE_PROMPT V1.0  版本A
+REACTIVE_PROMPT V2.0  版本B
+如何区分测试结果属于 版本A，还是版本B
+
+========================
+Step1，配置API_KEY
+设置环境变量：LANGCHAIN_TRACING_V2="true"
+
+Step2，配置 runnableconfig
+
+Step3，result = agent.invoke(initial_state, config=config)
+
+agent.invoke()
+========================
+
+
+1) 时间，客观指标
+2）正确性
+
+Q：本地跑处结果了，在smith网站查不到记录
+
+
+需要新建project吗
+
+
+可能是没连上key
+
+
+✓ LangSmith 追踪已启用
+  项目: wealth-advisor-hybrid-agent
+  查看追踪: https://smith.langchain.com
+
+
+
+和opentrace 挺像
+
+
+Q：测试的标准是啥？
+
+
+Q：API key 是Smith吗？
+
+
+Q：跑通了 Cursor说代码有bug 我环境变量里的APIkey没监测到
+
+
+看着好像newrelic的界面
+
+
+Q：用langfuse 这个可以本地部署
+
+
+Q：smith安全性怎么样？会上传本地数据吗？公司对数据安全性有限制。
+
+
+Q：API key 需要注册账号吗？
+
+
+Q：tag干嘛用
+AB测试
+
+Q：LangFuse
+
+
+ProcessingModeEvaluator 对Processing细节进行评测
+ResponseCompletenessEvaluator 对回答的完整度进行评测
+
+1）回归测试 (对历史的测试，再跑一遍）
+2）个性化 Evaluate
+
+LLM进行评估
+
+Q：今天的课程，用在哪个场景下，解决什么问题啊？
+AI Agent评测
+1）LangSmith/LangFuse 评测框架
+2）OpenEvals/DeepEvals （LLM as Judge）创建相关的评测器
+=> 输出报告
+
+评测标准：
+方法1：关键词 （客观答案） 99.9%
+方法2：LLM 0.7，0.8
+
+
+LLM评测，要不要给参考答案？ （LLM生成个参考答案 => 客户确认 => 确认后的作为referrence）
+
+你现在是一个大模型的评估器，用于评估答案的正确性。
+用户的问题：{query}
+参考答案：{reference}
+AI作为智能客服给到的答案：{AI_answer}
+
+标准：
+如果AI的答案与reference没有明显冲突则为满分。
+如果有明确reference提到的禁止的，但是AI_answer允许的需要扣分
+
+JSON：
+score：0-100
+reseaon：如果扣分了，有个扣分的理由（需要时和reference有明显冲突的）
+
+
+
+
+@1-hybrid_wealth_advisor_langgraph_langsmith.py 这里是基于langgraph + langsmith，我打算用 qwen-agent框架，参考 @assistant_ticket_bot-3.py 写入到新的 .py，这里可以先不用langsmith
+
+
+Q：但是大模型不是不准确吗？为什么还要给参考呢？
+如果有扣分逻辑，需要明确出来 ****
+打分的时候说明扣分逻辑（一定要有明显的冲突）
+
+langfuse 客户端，用于给server发请求（update）
+
+
+
+这不就是个阅卷流程
+
+
+让客户选好的
+
+
+要客户回邮件签字确认
+
+
+客户做数据标注
+
+
+工厂QA可以用这种模式吗
+
+
+有点像写论文的感觉
+
+
+置信度
+
+
+因为总要给客户一个交代吧
+
+
+
+Q：能不能重点说说大语言幻境的评测怎么进行？我感觉有些时候我看不出来哪些AI的输出是幻境来的。
+找参考答案 web search
+RAG（知识库，检索匹配的chunks） => LLM as a judge
+
+
+
+Q：老师前面提到docker能否推荐些类似免费的docker资源网站吗？
+
+
+Q：Vicky：如果是别人开发的Agent， 我怎么用这个来测试呢？在没有对方代码的情况下只能让对方用这个框架来跑然后给我结果吗？
+测试集，参考答案
+
+
+Q：这个工具原理是不是就是类似一个抓包工具
+
+
+Q：关键词评分是否需要小模型确认？
+deepseek-v4-flash LLM as judge
+
+
+Q：用OpenEvals是不是可以和自定义的评测器一起使用，并且和LangSmith一起使用
+
+
+Q：能不能教怎么搭建这么一个agent分析服务器
+
+
+Q：llm输出格式化的是不是也可以通过代码逻辑进行验证？
+
+
+我看老师都是提前一天就上传到网盘了，提前点进去预习呗。
+
+Q：结果都有了，那就是把结果归类，自己重新写个显示应该就和 smith 差不多了吧
+
+
+
+看来要多刷几遍课程了
+
+Q：可以简单理解openeval评估器是自己制作的？可以和longsmith一样对吗？
+langsmith 是一个大的评测框架，里面没有评估器
+openeval 有很多内置的评估器，也可以自定定义评估器
+
+
+
+Q：并发性能有什么办法测
+模拟端 开启多个并发的测试，比如 8个 langchain.invoke
+
+Q：LangChain 这样的框架和直接AI手撸 在现在有什么优势
+AI 写代码，也需要Agent框架
+
+
+Q：压测?
+
+
+Q：回答问题的大模型和评测的大模型是不一样的吗？
+qwen3-32b 私有化模型
+评测模型 可以用好的API模型
+
+Q：并发费 token
+
+
+Q：银行搭建AI体系的路径是啥，先从什么功能的智能体开始？
+技术（中台，引入）、业务
+
+
+Q：langfuse没调通，程序没报错但是网页上没有显示trace
+
+
+有延迟，我等了2分钟才出来
+
+银行Infra
+
+银行Infra
+
+
+是不是 千问的大模型用完了
+
+
+
+
+Q：如果不是问答型的agent，比如编程、编辑文件、生成视频这些怎么做它的测试评估
+result
+
+1) 生成视频所需要的时长
+2）有没有报错
+3）基于业务的 LLM as a judge
+ProcessingModelEvaluate ****
+标题生成的是否准确
+字幕排版是否准确
+视频脚本是否有违禁词
+
+        evaluators = [
+            ProcessingModeEvaluator(),
+            ResponseCompletenessEvaluator()
+        ]
+
+        # 运行评估
+        results = evaluate(
+            test_function,
+            data=dataset_name,
+            evaluators=evaluators,
+            experiment_prefix=experiment_name,
+            max_concurrency=1  # 串行执行，避免API限流
+        )
+
+
+Q：langsmith api 403 Forbitten。求解决卡了一节课了
+
+
+Q：老师，上节课的打卡练习里，调用大模型是通过invoke ，我查资料还有个stream方法，能不能简单介绍一下
+invoke（非流式）
+stream（流式） runnable

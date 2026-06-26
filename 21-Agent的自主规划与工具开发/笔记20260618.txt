@@ -1,0 +1,265 @@
+Q：自己做的FC能做成MCP吗
+可以，fastmcp
+
+
+Q：今天是不是主要讲反应式、深思熟虑、混合式——三种模式
+langgraph
+
+Q：后面会讲怎么做skill么
+OpenClaw, nanobot, cursor
+SKILL.md （元数据，指导说明书）
+
+
+Q：陈老师，你有没有给客户做过运维类的智能agent? 跟其他类型的agent主要区别是啥
+
+
+Q：openai模型是不是跟qwen agent不兼容
+
+
+Q：那能在那个平台自己开发MCP，出租给别人呢用吗
+
+
+Q：上节课最后就是用的mcp调用fc吧
+
+
+Q：老师，fc的这种协议，到LLM那里也是prompt吗？还是专门训练出来的格式？
+prompt = system prompt + tool prompt + user prompt
+
+
+Q：能不能讲讲AI在科研材料开发，生物研发方面的做法，这对就业很有帮助。
+DeepResearch
+
+
+Q：老师今天多讲下 今天课程中用到的架构
+LangGraph
+
+Q：怎么锻炼自己验收AI生成的的代码的是否符合要求的能力呢
+Test Case
+
+Q：日常开发是不是fc用得最多
+LangChain LangGraph + FC
+DeepAgents + Skills
+
+
+Q：“抱歉，由于系统环境限制，我无法直接执行SQL查询……”
+
+Q：运行assistant_ticket_bot-1.py时出现以上提示，这个是什么原因？
+
+
+Q：例如langchain
+
+http://reverie.herokuapp.com/arXiv_Demo/#
+
+OpenClaw, Hermes
+Agent + Skills（内置了一些Skills）
+Skills（元数据 name, description => 决定调用什么工具；
+指导说明书  SKILL.md => 怎么调）
+read_file（通过加载这个 skill.md 了解具体的调用方法）
+
+read_file, write_file, cron, web search
+
+
+RAG：文件切分 进行chunks的筛选 => 放到 system prompt
+
+Tool：search_rules_by_keywords(keywords: str)
+关键词
+
+Tool：search_rules_by_category(category: str)
+类别
+
+Tool：answer_question(query: str)
+找一条最接近的 QA
+
+agent = create_agent(llm, tools, system_prompt=system_prompt)
+
+Agent = system_prompt + LLM + tool
+
+@tool：是LangChain的注册工具
+
+
+私募基金的合格投资者标准是什么？
+如果我是一个净资产800万元的机构，我能投资私募基金吗？
+
+Tool1：keywords
+Tool2：category
+概率问题；3个和知识检索相关的Tool（如果pipeline RAG 没有检索出来，可能会通过Tool检索出来）
+
+RAG知识库（文件切分chunks => 筛选Top5 Chunks => prompt） => pipeline 稳定
+
+知识问答助手：
+1）相对固定 => RAG进行切分
+2）Tool更灵活
+
+对于复杂的助手，推荐配Tool，RAG（可以提供 指导说明书 few shot示例）
+
+RAG = faq.txt（CoT 作为错题本）
+情况1：如果用户提问了XXXX，你可以通过XXXTool1（读财报）, Tool2 查找相关的信息
+情况2：
+
+
+
+=====
+Q：rag不是知识库吗，这一会咋又成txt了
+是的，不冲突
+
+Q：把rule写进rag?
+对的
+
+Q：那这不和skill差不多
+
+
+Q：rag权重覆盖模型本身推理
+RAG的本质 => 补充system prompt
+
+Q：我有点迷糊了 这里是很细致的经验了
+
+
+Q：和长计议一样？
+
+
+私募基金可以投资哪些资产类别？
+
+LangGraph（图：node + edge）
+
+LangGraph Agent
+
+    # 输入
+    research_topic: str  # 研究主题
+    industry_focus: str  # 行业焦点
+    time_horizon: str  # 时间范围(短期/中期/长期)
+
+
+LangGraph Coze
+
+帮我梳理代码逻辑，写入到 html
+https://mermaid.live/
+print(agent.get_graph().draw_mermaid())
+
+web search
+
+
+上证
+4090.48
+
+
+信息就是财富
+
+
+Q：问glm，它能自己找到能用的股票接口
+
+
+Q：AI改成web查?
+
+
+message: Access denied. For details, see: https://help.aliyun.com/zh/model-studi
+
+
+Q：流程是每次大模型处理都传递了吗，判断哪一步，下一步干什么
+
+
+@hybrid_wealth_advisor_langgraph.py 帮我整理代码逻辑，可以适当讲解下示例，不超过800字，整理到 .html
+
+LangGraph：
+
+帮我整理mermaid流程图，更新到 html
+
+
+LangGraph：工作流（固定流程图，mermaid） **** 确定
+Qwen-Agent：Agent 
+
+@hybrid_wealth_advisor_langgraph.py 这是一个混合式的投顾助手，我想用qwen-agent实现，参考 @assistant_ticket_bot-3.py 写入到 新的.py
+
+
+工作流(LangGraph示例，分支，固定），Agent（Qwen-agent，FC MCP）
+
+
+
+Q：本次课堂上陈老师提到的LangGraph中的控制流是啥？就是workflow+state Process吗？
+
+
+
+Q：节点信息应该是框架限定了，主要是流程设计得根据业务来，这个最值钱的部分了
+
+
+Q：Agent智能体的工作流程是不太固定的，需要考虑控制它的思维链吗？memory是一代发，或者还有其他方法吗？
+
+
+Q：我想复制一个某行业的专家，我把专家写的书放进知识库里让 AI代替专家来个C端用户解答问题，今天的case用哪个可参考
+
+
+Q：协议插件 跟工具插件
+
+
+Q：如果给把我的知识库问答改成自己判别提问。判断是产品订单类的，就直接检索数据库内容回答。判断是其他内容就调用检索知识库或者联网分析回答。算是混合式Agent吗？
+
+
+Q：调用大模型qwen-plus时，是否使用了web_search，并且在报告过程中使用了search。生成结论是否会污染结论？
+
+
+
+
+
+
+
+
+威尼斯:21:53:25
+什么情况下TOOLCALL
+
+
+伊里奇:21:53:27
+这里要兜个底防止无限调用工具吗
+
+
+muye333:21:53:29
+一口气讲2小时，中间也不休息，真是牛呀
+
+
+David Wang:21:53:34
+reactive_agent，不会出现死循环吧？
+
+
+celeron2196:21:53:45
+tool_call 是所有 LLM 都支持的吗？
+
+
+我是一条鱼:21:53:45
+深思熟虑这个在langchain也能实现吗？
+
+知乎用户ZYX:21:00:48
+few shot
+
+
+落叶的小忧伤:21:00:50
+所以还是错题本
+
+
+勇敢的心:21:00:51
+真没懂
+
+
+绿色天堂:21:00:55
+和长记忆一样？
+
+
+勇敢的心:21:01:02
+RAG 和faq.txt?
+
+
+半城烟雨:21:01:07
+此时的rag相当于大模型选tool的提示
+
+
+planetbear:21:01:07
+rag可以是txt，没问题啊
+
+
+哎呦喂呀:21:01:14
+知识库是常见问题的话，
+faq能解决大量复杂问题吗？
+
+
+urbenliu0718:21:01:19
+tools 关键字或category 决定那个tools 本身是通过什么判断的
+
+未选择任何文件对 所有人 说:
+

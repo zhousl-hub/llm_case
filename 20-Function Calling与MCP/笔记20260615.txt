@@ -1,0 +1,344 @@
+Q：老师，我在使用ai 编程时有一个问题，简单描述需求的时候 大模型太发散，详细描述的时候容易压制大模型的智商，简单+描述细节，结果导致反复调整也达不到自己想要的
+
+harness 约束
+目标，关键点  =》 让Agent 写一个plan.md
+
+Q：fable现在风控是不是完全用不了了
+
+Q：一个一个问题分别说会比较好，一次说的多了大模型就卡了
+分批
+
+
+gemini nano banana
+
+
+Q：老师，介绍几个生成逻辑思维导图的插件吧？
+xmind, gemini nano banana
+NotebookLM
+
+
+
+Q：提示词，给一个看看可以吗
+
+
+这种定妆照会反复修的
+
+
+Q：老师，从modelscope下载的模型权重，之前课堂上介绍是说这是压缩的知识，是不是也可以理解为模型内部那些神经网络的参数
+model(weight)
+
+Q：现在学了SDD和TDD，然后让模型去写，发现不太满意。是让模型去修SDD和TDD去调整代码吗
+概率
+
+
+Q：老师，能将下ragflow吗?用它是不是不用手搓rag了？
+
+
+Q：让AI对话优化代码，AI偷偷删原有的功能，如何预防AI偷偷删功能代码？
+cursor rules, CLAUDE.md 软约束
+测试
+
+
+Q：skill是更完善的function call吗
+
+Agent = LLM + Tools + RAG
+50% AI能写对
+概率：
+1）system prompt ：角色 + 建表语句 + 私有知识 + few shot(示例，错题本）*************
+2）Tools   *************
+@register_tool('exc_sql')
+从数据里执行SQL查询
+
+方法1：写SQL工具 + 执行SQL工具
+方法2：执行SQL工具 **** （因为大模型 output的时候，可以自动转化为SQL语句，来驱动）
+
+
+token 分词；token ID
+
+qwen-agent 注册工具的方法，是通过 
+@register_tool('exc_sql')
+
+
+Agent框架（有自己的工具注册的方法）
+LangChain
+
+
+model(weight)
+
+
+Q：在哪运行啊
+
+
+@现在的代码
+==================
+@assistant_ticket_bot-1.py 我想改成餐饮助手，餐饮数据表如下：
+XXX
+该写到 assistant_food_bot-1.py
+==================
+
+*************
+        bot = Assistant(
+            llm=llm_cfg,
+            name='门票助手',
+            description='门票查询与订单分析',
+            system_message=system_prompt,
+            function_list=['exc_sql'],  # 只传工具名字符串
+        )
+
+
+
+Q：数据库，能换成本地的吗？
+可以
+localhost:3306
+
+
+可以去看百炼的文档
+
+
+@幻蒲蒲 没那么简单
+
+
+
+Q：这种方式和SPEC+SDD+TDD方式怎么结合？
+
+
+Q：这和我用claude有啥区别吗？
+
+
+
+
+Q：有没有大模型转化SQL有问题，需要写SQL的情形
+
+
+Tool
+方法1：在现有的  Exc_SQL + draw_table （新工具）
+方法2：在现有的 Exc_SQL （修改exc_sql，直接把图生成）
+
+LLM response (软约束，消耗token，不一定准确）
+
+python 自己的工具箱matplotlib，画出来的图
+
+        'model': 'qwen-flash',
+
+使用清华园镜像
+
+LangChain/LangGraph，LlamaIndex, OpenClaw, Hermes, DeepAgents, nanobot
+
+
+
+https://lbs.amap.com/
+https://modelscope.cn/mcp/servers/@amap/amap-maps
+用高德MCP，做上海一天旅游攻略
+
+MCP：Online Function Call
+https://modelscope.cn/mcp/servers/@amap/amap-maps
+sse, stdio
+
+
+Q：coze里面的 插件也算mcp吧？
+coze + coze插件市场(适配coze）
+MCP协议
+
+Q：相当于别的应用吐功能 吐数据出来
+
+
+Q：stdio是本地运行mcp client吗
+是的，python, nodejs
+sse
+
+Q：token收费是啥意思，不是跟api一样调用一次收一次的钱么
+API KEY
+
+Q：那如果我的生产环境，不存在IDE，那怎么在系统里注册MCP
+qwen-agent
+
+AI搜索：Fetch，Tavily
+
+
+Q：他从哪里获取工具的？是有一个类似注册中心吗？
+https://modelscope.cn/mcp 介绍广场
+
+
+Q：MCP只能放一个吗？
+可以多个
+
+https://open.tianyancha.com/ 天眼查的接口算mcp还是别的？
+
+
+Q：skill后面会讲吗？
+
+
+Q：在LLM中怎么激活MCP呢？
+agent
+
+Q：天眼查的接口算mcp吗？
+算
+
+Q：mcp商业前途如何
+To Agent
+
+
+Q：FC和MCP的区别，他俩的本质是什么？感觉FC跟skill差不多，FC跟skill的区别，这个agent框架和langchain啥区别
+MCP = online fc （通过协议给所有的agent提供服务）
+Skills = 进阶版FC
+SKILL.md 
+1）元数据yaml
+2）使用说明
+
+Q：老师 需要用到的是市面上没有mcp 可不可以用function call 来替代
+
+
+Q：我怎么知道高德MCP包括哪些工具呢
+
+
+Q：这个stdio 直连是什么概念？？
+std 标准
+io 输入输出
+
+SSE：HTTP协议
+
+Q：给agent注册工具后，agent内部拿到大模型想要调用的工具后是怎么处理的，与skill有什么区别
+Agent：
+system prompt + tool prompt (返回：tool name, tool para）
+
+
+Q：讲自己开发mcp吗？
+
+
+Q：Function call 和Skill有啥区别呢
+
+
+Q：代码怎么调用MCP的
+
+
+Q：为什么要中转
+
+
+Q：用function call 和mcp 是否涉及到token ?
+
+
+
+mcp的函数是怎么给到llm
+
+
+celeron2196:21:31:22
+老师，qwen_agent 注册的function_list=['exc_sql']是通过提示词传给 LLM 的吗？
+
+
+@register_tool('exc_sql') ==> 注册工具Function Call
+@mcp.tool()  => 注册MCP服务
+
+    tools = [{
+        "mcpServers": {
+            "txt-counter": {
+                "command": "python",
+                "args": ["txt_counter.py"],
+                "port": 6277
+            }
+        }
+    }]
+
+python txt_counter.py
+mcp dev txt_counter.py （windows的调试可能有问题，mac调试是OK的）
+
+MCP的应用场景：
+1）发邮件
+2）桌面管理
+3）私有知识管理
+4）系统的对接
+
+数据源的质量重要
+
+做一个决策 VS 做一个好的决策
+CLAUDE 推理能力强；
+
+FC + MCP / Skill
+
+
+Q：老师，MCP和Skill，Function call
+FC 基础款
+MCP Online fc
+Skill：进阶版FC
+
+Q：说下如何搭建阿里云mysql数据库？
+prompt：我想在本地搭建一个 sqlite数据库，创建一个门票的数据表，字段包括：
+
+
+
+Q：mcp dev .py 主流是python版本吗，有对应java版本吗
+sprintAI
+
+
+Q：老师您的股票收益最近怎么样？我最近也在开始研究量化交易，想请教下您的那个量化交易系统具体都实现了些什么功能？哪些地方用到了mcp?
+注册给AI
+
+AI Agent：
+
+
+Q：很多开源的agent 比如openclaw, hemers，都有内置的工具，这些内置的工具是不是就是通过function call实现
+skill（渐进式的FC）
+
+
+Q：有什么不同
+1）元数据yaml 100
+2) 指导说明书，加载完整的 SKILL.md
+
+Q：工具太多的话，怎么管理，能提高大模型调用的准确率？
+skills：openclaw, hermes, nanobot + Skills
+qwen-agent 快速搭建原型
+
+
+Q：您大概多久更新一次交易策略呢？需要每天都跟AI交流一次，让它自动获取信息制定当天的交易策略和计划吗？交易策略和实盘交易之间具体到底是怎么配合的？
+
+
+
+Q：我们这个桌面TXT统计器要怎么上传到model scope上？
+https://modelscope.cn/mcp/servers/create
+
+Q：MCP server上有很多tools的话，怎么保证LLM通过MCP调用工具的准确性？LLM是有一定幻觉的。
+1）prompt软约束
+2）linter
+
+
+Q：端口号必须是6277吗？还是可以自己定义
+
+
+Q：老师，第一节课也有介绍function call，当时是通过大模型API把function传给LLM，今天的function call和之前有什么不同？
+Agent：给 Agent注册FC（Agent内置了 自己拦截，自己调用）
+LLM 给LLM注册FC，然后自己拦截，自己调用FC
+
+Q：我做了一个买世界杯的 哈哈哈 还挺有意思的
+
+
+Q：我觉得先把量化环境搭建起来，刚开始的时候先让ai自己决策，然后统计哪个收益多，再总结规则出来，ai再去监测，一步步提升成功率
+
+
+Q：老师今天的课程是必须要用下载千问的agent吗，还是其他的也可以？
+不是，pip install qwen-agent 即可
+
+Q：肯定是可以用量化的，量化的功能其实因人而异，不要和顶尖的机构对比，只要比自己靠情绪操作强就好~ 目的是通过量化增加赢的概率我觉得
+
+sqlite
+
+Q：这个跟agent让他写SQL 查询数据库那我们平时防止SQL注入 是不允许交互查询的时候有关键字的
+直接查询SQL，可能会有SQL注入风险
+sqlachemy
+
+
+
+看看我老师
+
+
+Q：这个Agent示例与上次的ChatBI有什么不同吗？
+
+
+这个是如何解决的
+
+
+你可以改代码跑通
+
+
+Q：把量化那个项目做一遍
+
+
+Q：跑出来显示错误怎么办让AI来修
