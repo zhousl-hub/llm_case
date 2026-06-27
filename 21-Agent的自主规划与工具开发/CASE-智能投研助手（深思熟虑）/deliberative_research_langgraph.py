@@ -20,17 +20,20 @@ import json
 from typing import Dict, List, Any, Literal, TypedDict, Optional, Union, Tuple
 from datetime import datetime
 
+import dashscope
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.llms import Tongyi
+from langchain_community.chat_models import ChatTongyi
 from langchain_core.output_parsers import StrOutputParser, JsonOutputParser, PydanticOutputParser
 from pydantic import BaseModel, Field, field_validator
 from langgraph.graph import StateGraph, END
 
-# 设置API密钥
+# 设置API密钥与 DashScope 客户端超时（避免网络请求无限挂起）
 DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY")
+dashscope.api_key = DASHSCOPE_API_KEY or ""
+dashscope.timeout = 120
 
-# 创建LLM实例
-llm = Tongyi(model_name="qwen-flash", dashscope_api_key=DASHSCOPE_API_KEY)
+# 创建LLM实例（使用 ChatTongyi，与项目中其他 LangGraph 案例保持一致）
+llm = ChatTongyi(model_name="qwen-flash", dashscope_api_key=DASHSCOPE_API_KEY)
 
 # 定义输出模型
 class PerceptionOutput(BaseModel):
@@ -508,6 +511,10 @@ def run_research_agent(topic: str, industry: str, horizon: str) -> Dict[str, Any
 if __name__ == "__main__":
     print("=== 深思熟虑智能体 - 智能投研助手 ===\n")
     print("使用模型：qwen-flash\n")
+
+    if not DASHSCOPE_API_KEY:
+        print("错误：未设置环境变量 DASHSCOPE_API_KEY，请先配置通义千问 API 密钥。")
+        raise SystemExit(1)
     
     # 用户输入
     topic = input("请输入研究主题 (例如: 新能源汽车行业投资机会): ")
