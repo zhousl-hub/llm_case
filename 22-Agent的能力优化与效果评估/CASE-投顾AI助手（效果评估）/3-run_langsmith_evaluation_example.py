@@ -12,9 +12,10 @@ import os
 import importlib.util
 import sys
 
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 spec = importlib.util.spec_from_file_location(
     "langsmith_testing_evaluation",
-    "2-langsmith_testing_evaluation.py"
+    os.path.join(_SCRIPT_DIR, "2-langsmith_testing_evaluation.py")
 )
 eval_module = importlib.util.module_from_spec(spec)
 sys.modules["langsmith_testing_evaluation"] = eval_module

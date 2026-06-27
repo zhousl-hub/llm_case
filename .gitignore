@@ -13,12 +13,7 @@ __pycache__/
 dist/
 build/
 
-# Large model files
+# Large model files (>1GB)
 *.onnx
 *.safetensors
 pytorch_model.bin
-word2Vec.model
-
-# Videos and archives
-*.mp4
-*.zip

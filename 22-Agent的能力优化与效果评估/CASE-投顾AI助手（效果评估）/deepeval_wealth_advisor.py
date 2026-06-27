@@ -39,9 +39,10 @@ from deepeval.metrics import (
 import importlib.util
 import sys
 
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 spec = importlib.util.spec_from_file_location(
     "hybrid_wealth_advisor_langgraph_langsmith",
-    "1-hybrid_wealth_advisor_langgraph_langsmith.py"
+    os.path.join(_SCRIPT_DIR, "1-hybrid_wealth_advisor_langgraph_langsmith.py")
 )
 hybrid_module = importlib.util.module_from_spec(spec)
 sys.modules["hybrid_wealth_advisor_langgraph_langsmith"] = hybrid_module
