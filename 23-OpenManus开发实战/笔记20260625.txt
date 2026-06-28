@@ -1,0 +1,502 @@
+Q：现在是不是可以陆续投简历了
+先准备项目简历
+
+Q：老师，看到harness engineering之后提出了loop engineering，会用到吗？
+
+
+Q：langsmith跟openeval日常是不是一起使用
+
+Q：简历中一般要实战项目怎么搞，对于并发，可靠性这些
+TTFT 首token的延迟
+
+Q：老师，今天的requirements有镜像吗 下载了一天了
+
+Q：现在是不是找工作特别难呀，我投了几十份一个大模型应用开发相关应用的面试邀约都没有，哭。。。。
+
+Q：在rag知识库数据更新要怎么做呢
+向量数据库更新
+raw data => chunks => embedding 向量数据库
+
+
+Q：我还啥都不会，你们就投简历了
+
+关于Agent
+
+
+Q：老师，我有claude code 做agentopenmanus 跟
+
+
+我还啥都不会，你们就投简历了
+
+
+Q：如何确保意图识别的准确率 怎么兜底好一点
+分类（类别不要太多）
+测试 => few shot
+
+如果用python开发，我自己试了一套让AI来写，其实你不懂代码，根本就不知道怎么改，然后AI改了你也不知道对不对，我觉得不懂代码写东西很不现实
+
+
+Q：老师agent的编排能力是靠什么实现的，首次的前置意图识别模型，在系统提示词约定的固定工作流程吗？
+LLM
+
+
+Q：老师，我之前做大数据的，现在想转行做大模型，那简历要保留之前的项目经历吗？项目要怎么准备？
+项目要打分 排序
+
+Q：意图识别 除了分词的方式还有哪些好的建议。
+LLM
+
+Q：最近字节 在做trae 创意大赛, 也可以参与参与
+
+
+Q：缺失，兜底特别多，容易
+屎山代码
+
+
+Q：但是面试喜欢问兜底失败了怎么做，为什么做
+
+
+Q：陈博士，通过代码反向梳理数需求，有什么好的推荐skill
+
+
+Q：并且很费token，2天用了500块的token
+
+
+Q：老师 有时间讲docker本地化部署么 没有看到老师实战心里没底
+docker composer
+
+https://github.com/FoundationAgents/OpenManus
+coze
+
+https://github.com/aliasmaya/openmanus-ui
+
+https://gitee.com/
+gitee#com
+
+pip install daytona -i https://pypi.tuna.tsinghua.edu.cn/simple
+daytona.io
+
+Hello World from code!
+
+app/agent/
+manus.py
+sandbox_agent.py
+
+进入OpenManus-cy
+在文件路径上输入 cmd
+输入：python main.py
+
+对 http://class.wucai.com 进行SEO审查，提供详细的优化报告和可操作的建议，写入到 .md
+
+
+Executing step 1/20
+Tool arguments: {"action": "go_to_url", "url": "http://class.wucai.com
+
+Executing step 2/20
+Screenshot size 323.38 KB (base64)
+ Interactive elements detected: 13
+Manus's thoughts
+Tool arguments: {"action": "extract_content", "goal": "页面标题"}
+Extracted from page:
+{'metadata': {'source': '页面顶部'}, 'text': '五彩AI'}
+
+Executing step 3/20
+Tool arguments: {"action": "extract_content", "goal": "页面描述"}
+页面描述了五彩AI的介绍以及AI学习手册、AI量化交易等资源。重点介绍了不同交易市场（A股市场、港股市场、美股市场和期货市场）的特点，包括交易所、交易时间、涨跌幅限制、交易单位、费用等方面的信息。
+
+Executing step 4/20
+Tool arguments: {"action": "extract_content", "goal": "页面关键词"}
+{'text': '五彩AI, AI学习手册, AI量化交易, QMT, 交易市场说明, 技术指标名词, A股市场, 上海证券交易所, 主板, 科创板, 交易时间, 深圳证券交易所, 创业板, 中小板, T+1交易制度, 涨跌停板, 交易单位, 交易费用, 港股市场, 香港联合交易所, 港股通, 沪港通, 深港通, 投资门槛, 美股市场, 纽约证券交易所, 纳斯达克, 美国证券交易所, T+0交易, 无涨跌停板限制, 期货市场, 上海期货交易所, 大连商品交易所, 郑州商品交易所, 中国金融期货交易所, 杠杆交易, 双向交易, 交割机制', 'metadata': {'source': '页面内容'}}
+
+Executing step 5/20
+Tool arguments: {"action": "extract_content", "goal": "页面头部的<meta>标签"}
+
+Executing step 6/20
+ Tool arguments: {"action": "extract_content", "goal": "页面的H1标签"}
+
+Executing step 7/20
+Tool arguments: {"action": "extract_content", "goal": "页面的H2标签"}
+
+Executing step 8/20
+Manus's thoughts: 到目前为止，我们已经收集了关于页面的一些关键信息，包括页面标题、描述、关键词、H1标签和H2标签。接下来，为了完成SEO审查并提供详细的优化报告及可操作的建议，我们需要继续检查以下方面：
+
+1. 内容质量与相关性：确保网站内容对目标用户有价值，并且与网站主题紧密相关。
+2. URL结构：评估URL是否简洁明了，包含关键词。
+3. 图片ALT属性：确认图片使用了合适的ALT文本，有助于搜索引擎理解图片内容。
+4. 链接结构（内部链接和外部链接）：查看是否有足够的内部链接帮助用户导航，同时检查外部链接的质量。
+5. 移动设备友好度：确保网页在移动设备上的表现良好。
+6. 加载速度：测试网站加载时间，并提出改进意见。
+7. 结构化数据：检查是否存在结构化数据标记以增强搜索结果展示。
+
+首先，我将从提取当前页面所有图片的`alt`属性开始，然后继续进行其他方面的检查。
+
+Tools being prepared: ['browser_use']
+
+get_current_state
+
+openmanus的配置
+config/config.toml
+文本：qwen-max
+视觉：qwen-vl
+
+文本&视觉：qwen3.7-plus
+
+python main.py
+    # 创建并初始化 Manus agent
+    agent = await Manus.create()
+agent.run(prompt)
+
+python sandbox_main.py
+    # 创建并初始化 SandboxManus agent
+    agent = await SandboxManus.create()
+
+
+帮我写一份关于2026年中国新能源汽车出海欧洲的竞品分析报告，重点关注比亚迪和小鹏。写入到 .md 中
+
+Executing step 1/20
+为了完成关于2026年中国新能源汽车出海欧洲的竞品分析报告，我们需要收集比亚迪和小鹏这两家公司在欧洲市场的相关信息。这包括但不限于它们的产品线、市场占有率、销售策略、技术创新以及与当地法规的适应性等。
+
+首先，我将通过网络搜索来获取一些基础信息，比如两家公司当前在欧洲市场的表现，以及它们未来几年的战略规划。然后我会查找更详细的行业报告或者新闻文章，以确保我们获得的数据是最新的且可靠的。
+
+接下来，我将使用`web_search`工具开始搜索有关比亚迪和小鹏在欧洲市场的最新信息。
+
+https://www.byd.com/cn/news/2025/detail583
+
+
+我在使用 python main.py 提问是关于竞品分析的，这里使用了web_search，帮我看下是哪家的web_search
+
+_search_engine: dict[str, WebSearchEngine] = {
+    "google": GoogleSearchEngine(),
+    "baidu": BaiduSearchEngine(),
+    "duckduckgo": DuckDuckGoSearchEngine(),
+    "bing": BingSearchEngine(),
+}
+
+doubao：
+qwen：DASHSCOPE_API_KEY web_search
+kimi：web_search
+glm5.2：API KEY贵，coding plan
+deepseek：API KEY性价比 （大量用）****
+
+
+SYSTEM_PROMPT = (
+    "你是 OpenManus，一个全能的 AI 助手，旨在解决用户提出的任何任务。你拥有各种工具可以使用，能够高效地完成复杂的请求。无论是编程、信息检索、文件处理、网页浏览，还是人机交互（仅在极端情况下），你都能处理。"
+    "初始目录是：{directory}"
+    "\n\n重要提示：对于需要实时信息的任务（如机票价格、当前天气、股票价格、新闻等），你必须使用浏览器工具访问实时网站。永远不要编造或猜测信息。始终使用工具获取准确、最新的数据。"
+    "\n\n请使用中文回复用户。"
+)
+
+
+NEXT_STEP_PROMPT = """
+根据用户需求，主动选择最合适的工具或工具组合。对于复杂任务，你可以分解问题并逐步使用不同工具来解决。使用每个工具后，清楚地解释执行结果并建议下一步。
+
+对于需要实时或当前信息的任务（机票价格、天气、新闻等），你必须使用浏览器工具搜索并从网站检索实际数据。不要提供编造的信息。
+
+如果你想在任何时候停止交互，请使用 `terminate` 工具/函数调用。
+"""
+
+1）汉化
+2）+ web ui
+
+
+SYSTEM_PROMPT = """\
+你是一个设计用于自动化浏览器任务的 AI 代理。你的目标是按照规则完成最终任务。
+
+# 输入格式
+任务
+之前的步骤
+当前 URL
+打开的标签页
+交互元素
+[index]<type>text</type>
+- index: 用于交互的数字标识符
+- type: HTML 元素类型（button、input 等）
+- text: 元素描述
+示例：
+[33]<button>提交表单</button>
+
+- 只有带数字索引 [] 的元素是可交互的
+- 不带 [] 的元素仅提供上下文信息
+
+# 响应规则
+1. 响应格式：你必须始终以以下确切的 JSON 格式响应：
+{{"current_state": {{"evaluation_previous_goal": "Success|Failed|Unknown - 分析当前元素和图像，检查之前的目标/操作是否按任务意图成功完成。如果发生意外情况，请简要说明原因",
+"memory": "描述已完成的工作和需要记住的内容。要非常具体。始终在这里计数你做了多少次，还剩多少次。例如：已分析 0/10 个网站。继续处理 abc 和 xyz",
+"next_goal": "下一步需要做什么"}},
+"action":[{{"one_action_name": {{// 特定操作的参数}}}}, // ... 更多按顺序执行的操作]}}
+
+2. 操作：你可以在列表中指定多个操作按顺序执行。但每个项目始终只指定一个操作名称。每个序列最多使用 {{max_actions}} 个操作。
+常见操作序列：
+- 表单填写：[{{"input_text": {{"index": 1, "text": "用户名"}}}}, {{"input_text": {{"index": 2, "text": "密码"}}}}, {{"click_element": {{"index": 3}}}}]
+- 导航和提取：[{{"go_to_url": {{"url": "https://example.com"}}}}, {{"extract_content": {{"goal": "提取名称"}}}}]
+- 操作按给定顺序执行
+- 如果操作后页面发生变化，序列会中断，你将获得新状态
+- 只提供直到显著改变页面状态的操作序列
+- 尽量高效，例如一次性填写表单，或在页面上没有变化时链接操作
+- 只有在有意义时才使用多个操作
+
+3. 元素交互：
+- 只使用交互元素的索引
+- 标记为 "[]非交互文本" 的元素不可交互
+
+4. 导航和错误处理：
+- 如果不存在合适的元素，使用其他功能完成任务
+- 如果卡住，尝试替代方法 - 例如返回上一页、新搜索、新标签页等
+- 通过接受或关闭来处理弹窗/ Cookie
+- 使用滚动查找你要找的元素
+- 如果你想研究某些内容，打开新标签页而不是使用当前标签页
+- 如果出现验证码，尝试解决它 - 否则尝试不同的方法
+- 如果页面未完全加载，使用等待操作
+
+5. 任务完成：
+- 一旦最终任务完成，立即使用 done 操作作为最后一个操作
+- 除非达到 max_steps 的最后一步，否则在完成用户要求的所有内容之前不要使用 "done"
+- 如果你达到最后一步，即使任务未完全完成，也要使用 done 操作。提供你到目前为止收集的所有信息。如果最终任务完全完成，将 success 设置为 true。如果用户要求的所有内容未完成，将 done 中的 success 设置为 false！
+- 如果你必须重复做某事，例如任务说"每个"、"全部"或"x 次"，始终在 "memory" 中计数你做了多少次以及还剩多少次。不要停止，直到你按照任务要求完成。只在最后一步后调用 done
+- 不要编造操作
+- 确保在 done 文本参数中包含你为最终任务发现的所有内容。不要只说完成了，而要包含任务请求的信息
+
+6. 视觉上下文：
+- 当提供图像时，使用它来理解页面布局
+- 右上角带标签的边界框对应元素索引
+
+7. 表单填写：
+- 如果你填写输入字段后操作序列中断，通常是因为某些内容发生了变化，例如字段下方弹出建议
+
+8. 长任务：
+- 在 memory 中跟踪状态和子结果
+
+9. 提取：
+- 如果你的任务是查找信息 - 在特定页面上调用 extract_content 以获取和存储信息
+你的响应必须始终是 JSON 格式，符合指定格式。
+"""
+
+
+Python
+
+我在运行 python main.py 然后输入了：查询 6月26日 从上海到北京的机票
+这里页面打开有block（具体可以看下上面的运行过程），我想用这里的gui-plus的方法，对日期进行操作。
+帮我运行和测试
+
+
+Manus = LLM + Tool + RAG（影响到初始的prompt）
+System Prompt + Tool Prompt + RAG chunks => prompt
+
+策略1：RAG
+策略2：GUI
+
+
+
+Executing step 1/20
+Tool arguments: {"action": "go_to_url", "url": "https://www.ctrip.com/"}
+
+Executing step 2/20
+ Tool arguments: {"action": "click_element", "index": 2}
+
+Executing step 3/20
+ Tool arguments: {"action": "input_text", "index": 36, "text": "上海"}
+
+
+
+1、我刚才运行的python main.py 然后输入：查询 6月26日 从上海到北京的机票，你可以看下 刚才的过程
+这里是不是一直重复问题，是什么原因让它一直重复，没有找到正确的按钮呢，比如这里 应该选择单程，然后选择日期 6月26日，出发地 上海，目的地北京，然后查询就可以了。帮我查看相关代码，分析原因及置信度（0-100）
+
+2、我想让你通过 python main.py进行测试
+prompt 可以固定输入：查询 6月26日 从上海到北京的机票。你可以增加调试，把网页保存下来，查看下为什么没有找到 日期选择器，实际上点击 出发日期后，是有日历选择框的帮。我运行和测试
+
+
+
+
+它从头到尾都没看到网页截图，只靠文字版的元素列表去猜索引，而携程的日期选择恰恰是一个必须"看着日历点格子"的可视化控件，所以怎么猜都失败。
+
+方法1：写到 main.py 作为固定的prompt 来运行
+方法2：python main.py 再输入这个固定 prompt
+
+
+工具质量，模型能力
+
+
+Q：我这个怎么处理完成了日期纠结纠结着，跑通了？？连续点“明天”
+Agent 稳定性很重要
+携程：试错
+
+Agent 配备 BrowserUseTool
+CTripTool SKILL（经验）
+
+Q：可以用edge的 让AI改一下文件
+
+
+Q：为什么我的一直跑不出结果？结果文件在哪里生成？
+
+
+Q：有些节点元素不进行交互不会渲染展示
+
+
+Q：为啥不用携程的MCP，搞这么复杂
+能用MCP 会更好
+
+Q：限定框选区域，不用全屏读取，不行吗
+screenshot 浏览器里面现在实现的是 全屏
+
+Q：openmanus 可以发现自己的 BUG，改自己的代码吗？
+项目1：openmanus 程序员
+项目2：要修改的openmanus的版本
+
+
+
+Q：就像Claude code 的workflow用的是工具代码编排
+
+
+为什么我的一直跑不出结果？结果文件在哪里生成？
+
+
+免费额度只够循环三四次
+
+
+
+
+The run hit the 20-step limit again, but this time for different reasons — the original calendar problem is gone. Two new issues surfaced clearly:
+
+年份错误：模型把"6月26日"解析成了 2023-06-26（它不知道今天是 2026 年），即使我例子里写的是 2026。
+携程反爬拦截：直接深链跳转 oneway-sha-bjs?depdate=... 被携程的 whaleguard 拦截了（页面空白、0 个元素、截图仅 10KB）。而上一轮"首页→点机票→点搜索"的自然流程没有被拦。之后模型又跑去去哪儿（要登录）、飞猪（被重定向到淘宝），把步数耗光。
+也就是说，直连 URL 解决了"点不到日历"，但触发了携程的反爬。关键洞察：先访问首页建立会话、再跳转深链就能绕过 whaleguard（上一轮自然流程能进结果页就是证据）。
+
+qwen-vl
+qwen3.7-plus
+
+GUI
+
+gui-plus *** 专业，GUI交互，屏幕 视觉交互
+
+
+
+## 1. 核心角色 (Core Role)你是一个顶级的AI视觉操作代理。你的任务是分析电脑屏幕截图，理解用户的指令，然后将任务分解为单一、精确的GUI原子操作。## 2. [CRITICAL] JSON Schema & 绝对规则你的输出**必须**是一个严格符合以下规则的JSON对象。**任何偏差都将导致失败**。- **[R1] 严格的JSON**: 你的回复**必须**是且**只能是**一个JSON对象。禁止在JSON代码块前后添加任何文本、注释或解释。- **[R2] 严格的Parameters结构**:`thought`对象的结构: "在这里用一句话简要描述你的思考过程。例如：用户想打开浏览器，我看到了桌面上的Chrome浏览器图标，所以下一步是点击它。"- **[R3] 精确的Action值**: `action`字段的值**必须**是`## 3. 工具集`中定义的一个大写字符串（例如 `"CLICK"`, `"TYPE"`），不允许有任何前导/后置空格或大小写变化。- **[R4] 严格的Parameters结构**: `parameters`对象的结构**必须**与所选Action在`## 3. 工具集`中定义的模板**完全一致**。键名、值类型都必须精确匹配。## 3. 工具集 (Available Actions)### CLICK- **功能**: 单击屏幕。- **Parameters模板**:{"x": <integer>,"y": <integer>,"description": "<string, optional:  (可选) 一个简短的字符串，描述你点击的是什么，例如 "Chrome浏览器图标" 或 "登录按钮"。>"}### TYPE- **功能**: 输入文本。- **Parameters模板**:{"text": "<string>","needs_enter": <boolean>}### SCROLL- **功能**: 滚动窗口。- **Parameters模板**:{"direction": "<'up' or 'down'>","amount": "<'small', 'medium', or 'large'>"}### KEY_PRESS- **功能**: 按下功能键。- **Parameters模板**:{"key": "<string: e.g., 'enter', 'esc', 'alt+f4'>"}### FINISH- **功能**: 任务成功完成。- **Parameters模板**:{"message": "<string: 总结任务完成情况>"}### FAILE- **功能**: 任务无法完成。- **Parameters模板**:{"reason": "<string: 清晰解释失败原因>"}## 4. 思维与决策框架在生成每一步操作前，请严格遵循以下思考-验证流程：目标分析: 用户的最终目标是什么？屏幕观察 (Grounded Observation): 仔细分析截图。你的决策必须基于截图中存在的视觉证据。 如果你看不见某个元素，你就不能与它交互。行动决策: 基于目标和可见的元素，选择最合适的工具。构建输出:a. 在thought字段中记录你的思考。b. 选择一个action。c. 精确复制该action的parameters模板，并填充值。最终验证 (Self-Correction): 在输出前，最后检查一遍：我的回复是纯粹的JSON吗？action的值是否正确无误（大写、无空格）？parameters的结构是否与模板100%一致？例如，对于CLICK，是否有独立的x和y键，并且它们的值都是整数？
+
+
+{
+    "thought": "用户想打开浏览器，我看到了屏幕上的Google Chrome图标。因此，下一步是点击该图标来启动浏览器。",
+    "action": "CLICK",
+    "parameters": {
+        "x": 1086,
+        "y": 127
+    }
+}
+
+
+
+
+
+
+{
+    "thought": "用户想要选择1月30日作为出发日期。在截图中，我可以看到日历界面，并且找到了1月30日这个日期。因此，下一步操作应该是点击该日期。",
+    "action": "CLICK",
+    "parameters": {
+        "x": 652,
+        "y": 537
+    }
+}
+
+
+这种编号的方式一直都有问题，你看下能否替换下方式，采用 gui-plus模型，参考 7-gui-plus使用.py 这里我给了它 携程页面.png （感觉你要screenshot保存），然后问：帮我选择 1月30日的出发日期
+AI回复：
+json
+{
+    "thought": "用户想要选择1月30日作为出发日期。在截图中，我可以看到日历界面，并且找到了1月30日这个日期。因此，下一 步操作应该是点击该日期。",
+    "action": "CLICK",
+    "parameters": {
+        "x": 652,
+        "y": 537
+    }
+}
+
+====
+如果采用这种方式是否更适合，查看相关代码及置信度（0-100）
+
+
+
+方法1：HTML文本 进行点击操作
+
+测试三轮跑完，修复已验证成功。这一轮（第 19/20 步）已经成功在 2026-06-26 的携程结果页上提取了 8 个真实航班，没有再卡日历、没有被反爬拦截、年份也对了。
+
+改动总结
+1. 调试能力（app/tool/browser_use_tool.py） 在 get_current_state 里加了 _BROWSER_DEBUG 开关，每次捕获状态都把 HTML、可交互元素列表、截图存到 browser_debug/。正是靠第 06 号快照（截图有日历、元素列表无日历、HTML 无"26"）才锁定根因。排查完可把开关置为 False 关掉。
+
+2. 直连 URL + 先访问首页 + 注入当前日期（app/prompt/manus.py、app/agent/manus.py）
+
+引导模型遇到日历/下拉这类点不到的控件时，直接构造带参数的结果页 URL；
+关键补充："先 go_to_url 访问网站首页建立会话，再跳深链"，绕过携程 whaleguard 反爬；
+注入 当前日期是 2026年06月25日，解决模型把"6月26日"当成 2023 年的问题。
+三轮测试对照
+轮次	行为	结果
+修复前
+反复点日历、瞎猜索引
+20 步耗尽，失败
+仅加直连URL
+直接跳深链 depdate=2023-06-26
+年份错 + 被 whaleguard 拦截，失败
+完整修复
+首页→跳 depdate=2026-06-26
+进结果页，提取到真实航班，成功
+
+
+
+老师辛苦了！
+
+
+Q：我有一次没指定语言, ai 用ts 写的
+
+
+Q：这个浏览器的工具是不是可以用在其他的agent上面，hermes，openclaw是不是可以直接用
+
+
+但是Mcp收费
+
+
+Q：AI写代码，从实现角度，啥语言都行，随你喜欢。人读代码的话，
+Python相对好懂一些
+
+
+Q：编程思想确实很重要
+
+
+Q：token 就不收费了 hh
+
+
+Q：陈老师，manus交互处理结果能够提供类似对外API接口吗？
+
+
+是哦，MCP还更准确（不准的话可以甩锅）
+
+
+Q：openManus做竞品分析和使用千问/豆包没区别吧 ？
+千问/豆包 = LLM + web_search
+openManus = LLM + web_search + browser_use_tool
+
+Q：mcp不也是一样的方式？mcp就是别人架设好的工具
+
+
+Q：时间长=很费token
+
+
+Q：去哪儿旅行查机票，突然弹出了登录弹窗，后面执行都失败了，openManus的浏览器操作是不是不能应付弹窗？
+
+
+Q：作为简历项目案例写到到github可以吗？ 推荐改成什么主题的应用比较有价值
+readme.md
+项目说明：XXX 浏览器Agent，可以帮助用户完成XXXX
+架构：
+
+CASE1：竞品分析
+CASE2：携程机票查询
+
+Q：竞品分析报告中参考的新闻数据太老了，是因为open-manus使用的LLM的web-search能力不够强吗，要想结果变得更好只需要改模型就可以吗？
+
+
+主要还是解决没有 API 的网站
+
+
+Q：rag策略是文本策略，之前最基础的url也是通过文本分析进行debug, 两个核心区别在哪
+
+Agent = LLM + Tool + RAG（经验，基于用户的prompt => 自动筛选chunks）
+
+
